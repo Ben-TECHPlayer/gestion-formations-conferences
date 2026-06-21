@@ -1,0 +1,110 @@
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@media (min-width: 1150px) {
+    header, main, .item-container, main.home-slider-container {
+        margin: 0 4rem 0 4rem;
+        padding: 0 4rem 0 4rem;
+    }
+}
+
+.menu a.active{
+  color: #007bff;
+  transition: ease-in 0.3s;
+}
+
+/* header .header-container .home img{
+    text-decoration: none;
+    color: #007bff;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+} */
+
+.header-container .home{
+  flex: 0;
+}
+
+.header-container .home a h1{
+    text-decoration: none;
+    color: #007bff;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 2rem;
+}
+
+@media (max-width: 250px) {
+  .header-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-side{
+    margin-top: 2rem
+  }
+}
+
+.right-side{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  /* flex: 1; */
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.menu a:hover{
+    color: #007bff;
+    transition: ease-in 0.3s;
+}
+
+/* Bouton hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+  .menu {
+    max-height: 0;              /* caché */
+    overflow: hidden;           /* masque le contenu */
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+    opacity: 0;                 /* invisible */
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  .menu.show {
+    max-height: 500px;          /* hauteur suffisante pour contenir les liens */
+    opacity: 1;                 /* visible */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
