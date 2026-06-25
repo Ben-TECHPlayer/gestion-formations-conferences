@@ -1,0 +1,154 @@
+/* PANEL DES FORMATIONS */
+
+/* Enlever les choses parasites */
+main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a{
+    text-decoration: none;
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a{
+    color: black
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul:hover, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a:hover{
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+/* Activer le défilement automatique pour faciliter la lecture de nos formations */
+main .panel-formations-scrollable #panel-formations{
+    overflow-x: auto;
+}
+
+/* Laisser de l'espace entre les blocs de formations */
+main .panel-formations-scrollable #panel-formations{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* Mettre chaque formation en forme */
+main .panel-formations-scrollable #panel-formations .formation-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 0 10px black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item h2, main .panel-formations-scrollable #panel-formations .formation-item p{
+    margin: 10px 0 0 10px;
+}
+
+/* Mettre le header de chaque bloc de formation en forme */
+main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .formation-title h2{
+    flex: 1 1 auto;
+}
+
+/* Customiser l'image */
+main .panel-formations-scrollable #panel-formations .formation-item .formation-title img{
+    flex: 0 0 auto;
+    width: 70px;
+    height: auto;
+    padding: 10px;
+}
+
+/* Mettre en forme le header pour ceux qui utilisent leur smartphone(Design responsive) */
+@media (max-width: 620px) {
+    main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main .panel-formations-scrollable #panel-formations .formation-item .formation-title img{
+        width: 200px;
+    }
+}
+
+/* FIRST */
+/* .form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.p {
+  color: #bf1650;
+  text-align: center;
+}
+
+textarea,
+select,
+input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  font-size: 14px;
+} */
+
+/* SECOND */
+/* Personnalisation de mon formulaire */
+form{
+    margin: 0 auto;
+    padding: 25px;
+    box-sizing: border-box;
+    max-width: 400px;
+    text-align: center;
+    background-color: beige;
+    border-radius: 15px;
+    margin-top: 4rem;
+    overflow-x: auto;
+}
+
+/* Customiation du titre de mon formulaire */
+form fieldset{
+    border: none;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+/* Personnalisation de mes inputs et mon champ de texte */
+form input, form textarea, form select{
+    display: block;
+    width: auto;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0 0 20px 0;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    box-sizing: border-box;
+}
+
+/* Personnalisation de mon input de validation */
+form input[type=submit]{
+    background: none;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Personnalisation de mon input de validation au survol */
+form input[type=submit]:hover{
+    background-color: #007bff;
+    color: white;
+    transition: ease-in 0.2s;
+}

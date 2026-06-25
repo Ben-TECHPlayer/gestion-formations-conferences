@@ -20,10 +20,10 @@ function Header() {
         <div className="right-side">
           <button class="menu-toggle" aria-label="Ouvrir le menu" onClick={toggleMenu}>&#9776;</button>
           <nav className={`menu ${menuOpen ? "show" : ""}`}>
-            <NavLink to="/card" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/formations" className={({ isActive }) => isActive ? "active" : ""}>
               Formations
             </NavLink>
-            <NavLink to="/lineup" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/conferences" className={({ isActive }) => isActive ? "active" : ""}>
               Conférences
             </NavLink>
           </nav>

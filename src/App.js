@@ -19,8 +19,8 @@ function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/formations" element={<Formations/>} /> 
-              <Route path="/conferences" element={<Conferences />} />
+              {/* <Route path="/formations" element={<Formations/>} /> 
+              <Route path="/conferences" element={<Conferences />} /> */}
 
           </Routes>
           <Footer />
