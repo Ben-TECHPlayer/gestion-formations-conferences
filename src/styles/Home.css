@@ -21,8 +21,8 @@ main .panel-formations-scrollable #panel-formations{
 
 /* Laisser de l'espace entre les blocs de formations */
 main .panel-formations-scrollable #panel-formations{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     gap: 30px;
 }
 

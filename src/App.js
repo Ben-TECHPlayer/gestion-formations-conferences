@@ -5,11 +5,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
+import Formations from './pages/Formations';
 
 import './styles/Footer.css';
 import './styles/Header.css';
 import './styles/Home.css';
 import './styles/index.css';
+import './styles/Formations.css';
 
 function App() {
   return (
@@ -19,8 +21,8 @@ function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route path="/formations" element={<Formations/>} /> 
-              <Route path="/conferences" element={<Conferences />} /> */}
+              <Route path="/formations" element={<Formations/>} /> 
+              {/* <Route path="/conferences" element={<Conferences />} /> */}
 
           </Routes>
           <Footer />
