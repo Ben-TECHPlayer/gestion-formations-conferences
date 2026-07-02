@@ -1,0 +1,70 @@
+/* Enlever les choses parasites */
+/* main .panel-formations-scrollable #panel-formations .type-formation-item .liste-certifications li a{
+    text-decoration: none;
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a{
+    color: black
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul:hover, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a:hover{
+    color: white;
+    transition: ease-in-out 0.2s;
+} */
+
+/* Activer le défilement automatique pour faciliter la lecture de nos formations et 
+laisser de l'espace entre les blocs de formations */
+main .panel-formations-scrollable #panel-formations{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    overflow-x: auto;
+}
+
+/* Mettre chaque formation en forme */
+main .panel-formations-scrollable #panel-formations .type-formation-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 0 10px black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+}
+
+main .panel-formations-scrollable #panel-formations .type-formation-item h2, main .panel-formations-scrollable #panel-formations .type-formation-item p{
+    margin: 10px 0 0 10px;
+}
+
+/* Mettre le header de chaque bloc de formation en forme */
+/* main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+main .panel-formations-scrollable #panel-formations .formation-item .formation-title h2{
+    flex: 1 1 auto;
+} */
+
+/* Customiser l'image */
+main .panel-formations-scrollable #panel-formations .type-formation-item .type-formation-image img{
+    width: 100%;
+    height: auto;
+}
+
+/* Mettre en forme le header pour ceux qui utilisent leur smartphone(Design responsive) */
+/* @media (max-width: 620px) {
+    main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main .panel-formations-scrollable #panel-formations .formation-item .formation-title img{
+        width: 200px;
+    }
+} */

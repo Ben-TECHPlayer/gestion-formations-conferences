@@ -81,19 +81,24 @@ function Home() {
                 </article>
             </div>
 
-            <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
+            <form action={"https://api.web3forms.com/submit"} method="post" onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
                 <fieldset>Contactez-nous</fieldset>
-                <input {...register("firstName")} placeholder="Votre nom" />
-                <input {...register("lastName")} placeholder="Votre prénom" />
-                <input {...register("email")} placeholder="Votre adresse mail" />
-                <input {...register("phoneNumber")} placeholder="Votre numéro de téléphone" />
 
-                <select {...register("category", { required: true })}>
+                <input type="hidden" name="access_key" value=""/>
+                <input type="hidden" name="from_name" value="Gestion de formations et conférences"/>
+                <input type="hidden" name="redirect" value="https://api.web3forms.com/submit/success"/>
+
+                <input {...register("firstName")} placeholder="Votre nom" required/>
+                <input {...register("lastName")} placeholder="Votre prénom" required/>
+                <input {...register("email")} placeholder="Votre adresse mail" required/>
+                <input {...register("phoneNumber")} placeholder="Votre numéro de téléphone" required/>
+
+                <select {...register("category", { required: true })} required>
                     <option value="">Select...</option>
                     <option value="A">Formations</option>
                     <option value="B">Conférences</option>
                 </select>
-                <textarea {...register("aboutYou")} placeholder="Votre message" />
+                <textarea {...register("aboutYou")} placeholder="Votre message" required/>
                 <p>{data}</p>
                 <input type="submit" />
             </form>
