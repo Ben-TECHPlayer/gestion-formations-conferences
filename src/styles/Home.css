@@ -1,33 +1,15 @@
-/* PANEL DES FORMATIONS */
+/* PANEL D'ACCUEIL */
 
-/* Enlever les choses parasites */
-main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a{
-    text-decoration: none;
-}
-
-main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a{
-    color: black
-}
-
-main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications ul:hover, main .panel-formations-scrollable #panel-formations .formation-item .liste-certifications li a:hover{
-    color: white;
-    transition: ease-in-out 0.2s;
-}
-
-/* Activer le défilement automatique pour faciliter la lecture de nos formations */
-main .panel-formations-scrollable #panel-formations{
+/* Activer le défilement automatique pour faciliter la lecture et laisser de l'espace entre les blocs */
+main .panel-accueil-scrollable #panel-accueil{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
     overflow-x: auto;
 }
 
-/* Laisser de l'espace entre les blocs de formations */
-main .panel-formations-scrollable #panel-formations{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 30px;
-}
-
-/* Mettre chaque formation en forme */
-main .panel-formations-scrollable #panel-formations .formation-item{
+/* Mettre chaque bloc en forme */
+main .panel-accueil-scrollable #panel-accueil .accueil-item{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -35,45 +17,18 @@ main .panel-formations-scrollable #panel-formations .formation-item{
     box-shadow: 0 0 10px black;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 10px;
     background-color: #007bff;
     color: white;
 }
 
-main .panel-formations-scrollable #panel-formations .formation-item h2, main .panel-formations-scrollable #panel-formations .formation-item p{
-    margin: 10px 0 0 10px;
-}
-
-/* Mettre le header de chaque bloc de formation en forme */
-main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-main .panel-formations-scrollable #panel-formations .formation-item .formation-title h2{
-    flex: 1 1 auto;
+main .panel-accueil-scrollable #panel-accueil .accueil-item h2, main .panel-accueil-scrollable #panel-accueil .accueil-item p{
+    margin: 10px 0 10px 10px;
 }
 
 /* Customiser l'image */
-main .panel-formations-scrollable #panel-formations .formation-item .formation-title img{
-    flex: 0 0 auto;
-    width: 70px;
+main .panel-accueil-scrollable #panel-accueil .accueil-item .accueil-image img{
+    width: 100%;
     height: auto;
-    padding: 10px;
-}
-
-/* Mettre en forme le header pour ceux qui utilisent leur smartphone(Design responsive) */
-@media (max-width: 620px) {
-    main .panel-formations-scrollable #panel-formations .formation-item .formation-title{
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    main .panel-formations-scrollable #panel-formations .formation-item .formation-title img{
-        width: 200px;
-    }
 }
 
 /* PARTIE FORMULAIRE */
