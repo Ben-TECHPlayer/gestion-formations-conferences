@@ -4,8 +4,9 @@ function Footer() {
     return (
     <footer>
         <div class="droits-auteur">
-            <p>© 2026 Ben-Ali ABOUDOU. Tous droits réservés.</p>
-            <p className="marge">Étudiant en BUT Informatique à l'IUT d'Orsay</p>
+            <p>Boina CHAMSOUDINE - Chef d'entreprise</p>
+            <p>Ben-Ali ABOUDOU - Étudiant en BUT Informatique à l'IUT d'Orsay</p>
+            <p>© 2026 Tous droits réservés.</p>
         </div>
         <div class="contact-icons">
             {/* <a href="mailto:aboudoubenali@gmail.com"><img src={`${process.env.PUBLIC_URL}/assets/gmail.png`} alt="Gmail" /></a> */}

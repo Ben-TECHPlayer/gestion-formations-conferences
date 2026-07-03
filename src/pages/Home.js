@@ -5,9 +5,28 @@ import { useForm } from "react-hook-form";
 import '../styles/Home.css';
 
 function Home() {
-    const { register, handleSubmit } = useForm();
-    const [data, setData] = useState("");
-    const [lienFormulaire, setLienFormulaire] = useState("https://api.web3forms.com/submit")
+    const [result, setResult] = useState("");
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+        formData.append("access_key", "a30bc28f-59e6-4782-9ced-0814c617ec56");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            setResult("Form Submitted Successfully");
+            event.target.reset();
+        } else {
+            setResult("Error");
+        }
+    };
+
 
     return (
         <main>
@@ -33,26 +52,21 @@ function Home() {
                 </article>
             </div>
 
-            <form action={lienFormulaire} method="post" onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
+            <form onSubmit={onSubmit}>
                 <fieldset>Contactez-nous</fieldset>
 
-                <input type="hidden" name="access_key" value="" />
-                <input type="hidden" name="from_name" value="Gestion de formations et conférences"/>
-                <input type="hidden" name="redirect" value="https://api.web3forms.com/submit/success"/>
+                <input type="text" name="lastName" placeholder="Votre nom" required/>
+                <input type="text" name="firstName" placeholder="Votre prénom" required/>
+                <input type="email" name="email" placeholder="Votre adresse mail" required/>
+                <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required/>
 
-                <input {...register("firstName")} placeholder="Votre nom" required/>
-                <input {...register("lastName")} placeholder="Votre prénom" required/>
-                <input {...register("email")} placeholder="Votre adresse mail" required/>
-                <input {...register("phoneNumber")} placeholder="Votre numéro de téléphone" required/>
-
-                <select {...register("category", { required: true })} required>
+                <select name="requestType" required>
                     <option value="">Sélectionnez votre type de demande</option>
                     <option value="A">Formations</option>
                     <option value="B">Conférences</option>
                 </select>
-                <textarea {...register("aboutYou")} placeholder="Votre message" required/>
-                <p>{data}</p>
-                <input type="submit" />
+                <textarea name="message" placeholder="Votre message" required/>
+                <input type="submit" value={"Envoyer votre demande"} />
             </form>
         </main>
     );

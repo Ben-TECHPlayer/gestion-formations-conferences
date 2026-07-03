@@ -9,6 +9,9 @@ import Home from './pages/Home';
 import Formations from './pages/Formations';
 import Conferences from './pages/Conferences';
 import Candidature from './pages/Candidature';
+import FormationCollege from './pages/formations/FormationCollege';
+import FormationEcoleDeCommerce from './pages/formations/FormationEcoleDeCommerce';
+import FormationLycee from './pages/formations/FormationLycee';
 
 import './styles/Footer.css';
 import './styles/Header.css';
@@ -26,8 +29,14 @@ function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
+
               <Route path="/formations" element={<Formations/>} /> 
+              <Route path="/formations/formation-college" element={<FormationCollege/>} />
+              <Route path="/formations/formation-lycee" element={<FormationLycee/>} />
+              <Route path="/formations/formation-ecole-de-commerce" element={<FormationEcoleDeCommerce/>} />
+
               <Route path="/conferences" element={<Conferences />} />
+              
               <Route path="/candidature" element={<Candidature />} />
           </Routes>
           <Footer />
