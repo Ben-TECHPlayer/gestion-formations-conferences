@@ -14,7 +14,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://ben-techplayer.github.io/gestion-formations-conferences",
+  "homepage": "https://ben-techplayer.github.io/gestion-formations-conferences/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
