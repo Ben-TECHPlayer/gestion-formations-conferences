@@ -3,10 +3,12 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FormulaireCandidature from './components/FormulaireCandidature';
 
 import Home from './pages/Home';
 import Formations from './pages/Formations';
 import Conferences from './pages/Conferences';
+import Candidature from './pages/Candidature';
 
 import './styles/Footer.css';
 import './styles/Header.css';
@@ -14,6 +16,7 @@ import './styles/Home.css';
 import './styles/index.css';
 import './styles/Formations.css';
 import './styles/Conferences.css';
+import './styles/Candidature.css';
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/formations" element={<Formations/>} /> 
               <Route path="/conferences" element={<Conferences />} />
+              <Route path="/candidature" element={<Candidature />} />
           </Routes>
           <Footer />
         </div>
