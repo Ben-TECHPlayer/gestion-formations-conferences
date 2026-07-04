@@ -4,14 +4,20 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FormulaireCandidature from './components/FormulaireCandidature';
+import FormationCaracteristiques from './components/FormationCaracteristiques';
 
 import Home from './pages/Home';
 import Formations from './pages/Formations';
 import Conferences from './pages/Conferences';
 import Candidature from './pages/Candidature';
+
 import FormationCollege from './pages/formations/FormationCollege';
 import FormationEcoleDeCommerce from './pages/formations/FormationEcoleDeCommerce';
 import FormationLycee from './pages/formations/FormationLycee';
+
+import ConferenceRentreeLycee from './pages/conferences/ConferenceRentreeLycee';
+import ConferenceRentreeCollege from './pages/conferences/ConferenceRentreeCollege';
+import ConferenceRentreeEcoleDeCommerce from './pages/conferences/ConferenceRentreeEcoleDeCommerce';
 
 import './styles/Footer.css';
 import './styles/Header.css';
@@ -36,6 +42,9 @@ function App() {
               <Route path="/formations/formation-ecole-de-commerce" element={<FormationEcoleDeCommerce/>} />
 
               <Route path="/conferences" element={<Conferences />} />
+              <Route path="/conferences/conference-rentree-college" element={<ConferenceRentreeCollege/>} />
+              <Route path="/conferences/conference-rentree-lycee" element={<ConferenceRentreeLycee/>} />
+              <Route path="/conferences/conference-rentree-ecole-de-commerce" element={<ConferenceRentreeEcoleDeCommerce/>} />
               
               <Route path="/candidature" element={<Candidature />} />
           </Routes>

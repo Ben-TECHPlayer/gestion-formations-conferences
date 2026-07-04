@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import '../../styles/formations/FormationEcoleDeCommerce.css';
+import FormationCaracteristiques from '../../components/FormationCaracteristiques';
 
 function FormationEcoleDeCommerce(){
 
@@ -9,23 +10,15 @@ function FormationEcoleDeCommerce(){
 
     return(
         <main>
-            <div className={`menuFormation ${menuFormationOpen ? "show" : ""}`}>
-                <NavLink to="/formations/formation-college" className={({ isActive }) => isActive ? "active" : ""}>
-                    Résumé
-                </NavLink>
-                <NavLink to="/formations/formation-college" className={({ isActive }) => isActive ? "active" : ""}>
-                    Programme
-                </NavLink>
-                <NavLink to="/formations/formation-college" className={({ isActive }) => isActive ? "active" : ""}>
+            <FormationCaracteristiques />
+            {/* <div className={`menuFormation ${menuFormationOpen ? "show" : ""}`}>
+                <NavLink to="/formations/formation-ecole-de-commerce" className={({ isActive }) => isActive ? "active" : ""}>
                     Pourquoi ce cursus ?
                 </NavLink>
-                <NavLink to="/formations/formation-college" className={({ isActive }) => isActive ? "active" : ""}>
-                    Admission
-                </NavLink>
-                <NavLink to="/formations/formation-college" className={({ isActive }) => isActive ? "active" : ""}>
+                <NavLink to="/formations/formation-ecole-de-commerce" className={({ isActive }) => isActive ? "active" : ""}>
                     Débouchés
                 </NavLink>
-            </div>
+            </div> */}
 
             <h1>Résumé</h1>
             <p>
@@ -34,14 +27,6 @@ function FormationEcoleDeCommerce(){
             </p>
             <h1>Programme</h1>
             <p></p>
-            <h1>Les avantages pour les futurs étudiants en école de commerce</h1>
-            <ul>
-                <li>Formation gratuite</li>
-                <li>Diplôme reconnu par l'Etat</li>
-                <li>Rémunération généreuse</li>
-                <li>Vie étudiante au sommet</li>
-                <li>Expérience professionnelle à l'international</li>
-            </ul>
             <h1>Admission</h1>
             <p>L'entrée se fait en 3ème année d'école de commerce par défaut, et elle est postulable de plusieurs manières :</p>
             <ul>
@@ -49,13 +34,21 @@ function FormationEcoleDeCommerce(){
                 <li>Après le BAC +3, notamment le BUT TC</li>
                 <li>Via les admissions parallèles avec une deuxième année validée en BUT Techniques de Commercialisation</li>
             </ul>
+            {/* <h1>Les avantages pour les futurs étudiants en école de commerce</h1>
+            <ul>
+                <li>Formation gratuite</li>
+                <li>Diplôme reconnu par l'Etat</li>
+                <li>Rémunération généreuse</li>
+                <li>Vie étudiante au sommet</li>
+                <li>Expérience professionnelle à l'international</li>
+            </ul>
             <h1>Débouchés</h1>
             <ul>
                 <li>Commercial</li>
                 <li>Technico-commercial</li>
                 <li>Ingénieur commercial</li>
                 <li>Business Intelligence</li>
-            </ul>
+            </ul> */}
         </main>
     );
 }

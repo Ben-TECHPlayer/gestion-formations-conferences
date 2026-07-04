@@ -1,8 +1,22 @@
-main .panel-candidature-scrollable #panel-candidature .candidature-college,
+/* main .panel-candidature-scrollable #panel-candidature .candidature-college,
 main .panel-candidature-scrollable #panel-candidature .candidature-lycee,
 main .panel-candidature-scrollable #panel-candidature .candidature-ecole-de-commerce{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+} */
+
+/* Code SCSS pour améliorer la lisibilité */
+main{
+    .panel-candidature-scrollable{
+        #panel-candidature{
+            .candidature-college, .candidature-lycee, .candidature-ecole-de-commerce{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
 }

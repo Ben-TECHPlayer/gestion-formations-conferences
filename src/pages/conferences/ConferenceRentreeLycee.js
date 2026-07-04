@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import '../../styles/formations/FormationCollege.css';
-import FormationCaracteristiques from '../../components/FormationCaracteristiques';
+import '../../styles/conferences/ConferenceRentreeLycee.css';
+// import FormationCaracteristiques from '../../components/FormationCaracteristiques';
 
-function FormationCollege(){
+function ConferenceRentreeLycee(){
 
-    const [menuFormationOpen, setMenuFormationOpen] = useState(false);
+    const [menuConferenceOpen, setMenuConferenceOpen] = useState(false);
 
     return(
         <main>
-            <FormationCaracteristiques />
-
-            <h1>Résumé</h1>
+            {/* <FormationCaracteristiques /> */}
+            <img src={`${process.env.PUBLIC_URL}/assets/conference-rentree-lycee.png`} alt="Lycée" />
+            
+            <h1>Conférence de la rentrée lycée</h1>
+            {/* Description */}
             <p>
+
+            </p>
+
+            {/* Infos pratiques */}
+            <p>Lieu : </p>
+            <p>Date : </p>
+            {/* 
+
+            <p> 
                 Cette formation a pour but : former les futurs génies du commerce, pour cela on a plusieurs débouchés qu'on verra plus tard.
                 C'est pourquoi nous vous proposons l'alternance en école de commerce, en effet cela va vous permet de vous créer des opportunités qui vous seront présentées, alors saisissez-les, et surtout ne les laissez pas passer!
             </p>
@@ -27,9 +38,9 @@ function FormationCollege(){
                 <li>Via les admissions parallèles avec une deuxième année validée en BUT Techniques de Commercialisation</li>
             </ul>
             <h1>Les avantages pour les collégiens</h1>
-            <p></p>
+            <p></p> */}
         </main>
     );
 }
 
-export default FormationCollege;
+export default ConferenceRentreeLycee;

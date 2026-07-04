@@ -9,7 +9,7 @@ function Home() {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        setResult("Sending....");
+        setResult("En cours d'envoi....");
         const formData = new FormData(event.target);
         formData.append("access_key", "a30bc28f-59e6-4782-9ced-0814c617ec56");
 
@@ -20,7 +20,7 @@ function Home() {
 
         const data = await response.json();
         if (data.success) {
-            setResult("Form Submitted Successfully");
+            setResult("Votre demande est transmise.");
             event.target.reset();
         } else {
             setResult("Error");
