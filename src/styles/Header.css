@@ -17,6 +17,29 @@ html {
   transition: ease-in 0.3s;
 }
 
+.menu a.active#bouton-candidature{
+    background: #007bff;
+    color: white;
+    transition: ease-in 0.3s;
+    padding: 0.5rem 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+.menu a#bouton-candidature, .menu a.contact{
+    background: none;
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+.menu a#bouton-candidature:hover, .menu a.contact:hover{
+    background: #007bff;
+    color: white;
+    transition: ease-in 0.3s;
+}
+
 /* header .header-container .home img{
     text-decoration: none;
     color: #007bff;

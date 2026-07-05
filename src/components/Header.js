@@ -26,10 +26,10 @@ function Header() {
             <NavLink to="/conferences" className={({ isActive }) => isActive ? "active" : ""}>
               Conférences
             </NavLink>
-            <NavLink to="/candidature" className={({ isActive }) => isActive ? "active" : ""}>
-              Candidater
+            <NavLink to="/candidature" className={({ isActive }) => isActive ? "active" : ""} id="bouton-candidature">
+              Candidatature
             </NavLink>
-            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/" className={"contact"}>
               Contact
             </NavLink>
           </nav>

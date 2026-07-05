@@ -9,13 +9,13 @@ function FormationCaracteristiques(){
 
     return(
         <div className={`menuFormation ${menuFormationOpen ? "show" : ""}`}>
-            <NavLink to="/formations/formation-lycee" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
                 Résumé
             </NavLink>
-            <NavLink to="/formations/formation-lycee" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
                 Programme
             </NavLink>
-            <NavLink to="/formations/formation-lycee" className={({ isActive }) => isActive ? "active" : ""}>
+            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
                 Admission
             </NavLink>
         </div>

@@ -10,17 +10,25 @@ function Candidature(){
             <div class="panel-candidature-scrollable">
                 <article id="panel-candidature">
                     <h1>CANDIDATURE</h1>
-                    <div class="candidature-college">
-                        <h2>Souhaitez-vous intégrer le collège</h2>
-                        <button>Candidater</button>
-                    </div>
-                    <div class="candidature-lycee">
-                        <h2>Souhaitez-vous intégrer le lycée</h2>
-                        <button>Candidater</button>
-                    </div>
-                    <div class="candidature-ecole-de-commerce">
-                        <h2>Souhaitez-vous intégrer l'école de commerce</h2>
-                        <button>Candidater</button>
+                    <div className="panel-candidature-container">
+                        <div class="candidature-college">
+                            <h2>Souhaitez-vous intégrer le collège</h2>
+                            <Link to="/candidature">
+                                <button>Candidater</button>
+                            </Link>
+                        </div>
+                        <div class="candidature-lycee">
+                            <h2>Souhaitez-vous intégrer le lycée</h2>
+                            <Link to="/candidature">
+                                <button>Candidater</button>
+                            </Link>
+                        </div>
+                        <div class="candidature-ecole-de-commerce">
+                            <h2>Souhaitez-vous intégrer l'école de commerce</h2>
+                            <Link to="/candidature">
+                                <button>Candidater</button>
+                            </Link>
+                        </div>
                     </div>
                 </article>
             </div>

@@ -16,7 +16,7 @@ function ConferenceRentreeLycee(){
             <h1>Conférence de la rentrée lycée</h1>
             {/* Description */}
             <p>
-
+                Conférence en vue de la préparation de la rentrée lycée
             </p>
 
             {/* Infos pratiques */}
