@@ -29,3 +29,32 @@ main .panel-conferences-scrollable #panel-conferences .conference-item .conferen
     width: 100%;
     height: auto;
 }
+
+main img{
+    width: 100%;
+    height: auto;
+}
+
+.conference-texte h2, .conference-texte p{
+    color: white;
+}
+
+.conference-infos{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    overflow-x: auto;
+}
+
+.conference-infos div{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    /* box-shadow: 0 0 10px black; */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+}

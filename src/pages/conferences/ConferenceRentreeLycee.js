@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import '../../styles/conferences/ConferenceRentreeLycee.css';
+// import '../../styles/conferences/ConferenceRentreeLycee.css';
+import '../../styles/Conferences.css';
 // import FormationCaracteristiques from '../../components/FormationCaracteristiques';
 
 function ConferenceRentreeLycee(){
@@ -20,8 +21,14 @@ function ConferenceRentreeLycee(){
             </p>
 
             {/* Infos pratiques */}
-            <p>Lieu : </p>
-            <p>Date : </p>
+            <div className="conference-infos">
+                <div className="conference-infos-lieu">
+                    <p>Lieu : </p>
+                </div>
+                <div className="conference-infos-date">
+                    <p>Date : </p>
+                </div>
+            </div>
             {/* 
 
             <p> 

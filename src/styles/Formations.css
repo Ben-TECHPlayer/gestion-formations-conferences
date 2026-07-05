@@ -36,18 +36,27 @@ main .panel-formations-scrollable #panel-formations .type-formation-item .type-f
   align-items: center;
 }
 
-.menuFormation a {
+.menuFormation button {
   text-decoration: none;
   color: black;
+  background: none;
+  border: none;
   font-weight: 500;
+  font-size: medium;
+  cursor: pointer;
+  font-family: "Samsung Sharp Sans", "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.menuFormation a:hover{
+.menuFormation button:hover{
     color: #007bff;
     transition: ease-in 0.3s;
 }
 
-.menuFormation a.active{
+.menuFormation button.active{
   color: #007bff;
   transition: ease-in 0.3s;
+}
+
+.type-formation-texte h2, .type-formation-texte p{
+    color: white;
 }

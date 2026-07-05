@@ -6,19 +6,31 @@ import FormationCaracteristiques from '../../components/FormationCaracteristique
 
 function FormationCollege(){
 
-    const [menuFormationOpen, setMenuFormationOpen] = useState(false);
+    const [selection, setSelection] = useState("bouton-resume");
 
     return(
         <main>
-            <FormationCaracteristiques />
+            <FormationCaracteristiques selection={selection} setSelection={setSelection} />
 
+            {selection === "bouton-resume" && (
+            <div className="section-formation">
             <h1>Résumé</h1>
             <p>
                 Cette formation a pour but : former les futurs génies du commerce, pour cela on a plusieurs débouchés qu'on verra plus tard.
                 C'est pourquoi nous vous proposons l'alternance en école de commerce, en effet cela va vous permet de vous créer des opportunités qui vous seront présentées, alors saisissez-les, et surtout ne les laissez pas passer!
             </p>
+            </div>
+            )}
+
+            {selection === "bouton-programme" && (
+            <div className="section-formation">
             <h1>Programme</h1>
             <p></p>
+            </div>
+            )}
+
+            {selection === "bouton-admission" && (
+            <div className="section-formation">
             <h1>Admission</h1>
             <p>L'entrée se fait en 3ème année d'école de commerce par défaut, et elle est postulable de plusieurs manières :</p>
             <ul>
@@ -26,6 +38,9 @@ function FormationCollege(){
                 <li>Après le BAC +3, notamment le BUT TC</li>
                 <li>Via les admissions parallèles avec une deuxième année validée en BUT Techniques de Commercialisation</li>
             </ul>
+            </div>
+            )}
+            
             <h1>Les avantages pour les collégiens</h1>
             <p></p>
         </main>

@@ -3,21 +3,22 @@ import { NavLink, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import '../styles/Formations.css';
 
-function FormationCaracteristiques(){
+function FormationCaracteristiques({ selection, setSelection }){
 
-    const [menuFormationOpen, setMenuFormationOpen] = useState(false);
+    // const [menuFormationOpen, setMenuFormationOpen] = useState(false);
+    // const [ selection, setSelection ] = useState("bouton-resume");
 
     return(
-        <div className={`menuFormation ${menuFormationOpen ? "show" : ""}`}>
-            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
+        <div className="menuFormation">
+            <button className={selection === "bouton-resume" ? "active" : ""} onClick={() => setSelection("bouton-resume")}>
                 Résumé
-            </NavLink>
-            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
+            </button>
+            <button className={selection === "bouton-programme" ? "active" : ""} onClick={() => setSelection("bouton-programme")}>
                 Programme
-            </NavLink>
-            <NavLink to="/formations/" className={({ isActive }) => isActive ? "active" : ""}>
+            </button>
+            <button className={selection === "bouton-admission" ? "active" : ""} onClick={() => setSelection("bouton-admission")}>
                 Admission
-            </NavLink>
+            </button>
         </div>
     );
 }

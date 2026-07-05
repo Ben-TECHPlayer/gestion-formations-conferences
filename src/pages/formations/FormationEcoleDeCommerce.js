@@ -6,27 +6,31 @@ import FormationCaracteristiques from '../../components/FormationCaracteristique
 
 function FormationEcoleDeCommerce(){
 
-    const [menuFormationOpen, setMenuFormationOpen] = useState(false);
+    const [selection, setSelection] = useState("bouton-resume");
 
     return(
         <main>
-            <FormationCaracteristiques />
-            {/* <div className={`menuFormation ${menuFormationOpen ? "show" : ""}`}>
-                <NavLink to="/formations/formation-ecole-de-commerce" className={({ isActive }) => isActive ? "active" : ""}>
-                    Pourquoi ce cursus ?
-                </NavLink>
-                <NavLink to="/formations/formation-ecole-de-commerce" className={({ isActive }) => isActive ? "active" : ""}>
-                    Débouchés
-                </NavLink>
-            </div> */}
+            <FormationCaracteristiques selection={selection} setSelection={setSelection} />
 
+            {selection === "bouton-resume" && (
+            <div className="section-formation">
             <h1>Résumé</h1>
             <p>
                 Cette formation a pour but : former les futurs génies du commerce, pour cela on a plusieurs débouchés qu'on verra plus tard.
                 C'est pourquoi nous vous proposons l'alternance en école de commerce, en effet cela va vous permet de vous créer des opportunités qui vous seront présentées, alors saisissez-les, et surtout ne les laissez pas passer!
             </p>
+            </div>
+            )}
+
+            {selection === "bouton-programme" && (
+            <div className="section-formation">
             <h1>Programme</h1>
             <p></p>
+            </div>
+            )}
+
+            {selection === "bouton-admission" && (
+            <div className="section-formation">
             <h1>Admission</h1>
             <p>L'entrée se fait en 3ème année d'école de commerce par défaut, et elle est postulable de plusieurs manières :</p>
             <ul>
@@ -34,7 +38,10 @@ function FormationEcoleDeCommerce(){
                 <li>Après le BAC +3, notamment le BUT TC</li>
                 <li>Via les admissions parallèles avec une deuxième année validée en BUT Techniques de Commercialisation</li>
             </ul>
-            {/* <h1>Les avantages pour les futurs étudiants en école de commerce</h1>
+            </div>
+            )}
+            
+            <h1>Les avantages pour les futurs étudiants en école de commerce</h1>
             <ul>
                 <li>Formation gratuite</li>
                 <li>Diplôme reconnu par l'Etat</li>
@@ -48,7 +55,7 @@ function FormationEcoleDeCommerce(){
                 <li>Technico-commercial</li>
                 <li>Ingénieur commercial</li>
                 <li>Business Intelligence</li>
-            </ul> */}
+            </ul>
         </main>
     );
 }
