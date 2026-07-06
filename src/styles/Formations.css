@@ -7,6 +7,15 @@ main .panel-formations-scrollable #panel-formations{
     overflow-x: auto;
 }
 
+@media (max-width: 700px) {
+    main .panel-formations-scrollable #panel-formations{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        overflow-x: auto;
+    }
+}
+
 /* Mettre chaque formation en forme */
 main .panel-formations-scrollable #panel-formations .type-formation-item{
     position: relative;

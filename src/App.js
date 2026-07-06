@@ -3,8 +3,12 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import FormulaireCandidature from './components/FormulaireCandidature';
+import FormulaireCandidatureCollege from './components/formulaire-candidature/FormulaireCandidatureCollege';
+import FormulaireCandidatureLycee from './components/formulaire-candidature/FormulaireCandidatureLycee';
+import FormulaireCandidatureEcoleDeCommerce from './components/formulaire-candidature/FormulaireCandidatureEcoleDeCommerce';
 import FormationCaracteristiques from './components/FormationCaracteristiques';
+
+
 
 import Home from './pages/Home';
 import Formations from './pages/Formations';

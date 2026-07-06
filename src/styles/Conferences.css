@@ -7,6 +7,15 @@ main .panel-conferences-scrollable #panel-conferences{
     overflow-x: auto;
 }
 
+@media (max-width: 700px) {
+    main .panel-conferences-scrollable #panel-conferences{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        overflow-x: auto;
+    }
+}
+
 /* Mettre chaque conference en forme */
 main .panel-conferences-scrollable #panel-conferences .conference-item{
     position: relative;

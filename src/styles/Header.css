@@ -48,11 +48,11 @@ html {
     font-weight: bold;
 } */
 
-.header-container .home{
+/* .header-container .home{
   flex: 0;
-}
+} */
 
-.header-container .home a h1{
+.header-container a h1{
     text-decoration: none;
     color: #007bff;
 }
@@ -62,6 +62,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0 2rem;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 250px) {
@@ -110,7 +111,7 @@ html {
 }
 
 /* Responsive */
-@media (max-width: 630px) {
+@media (max-width: 700px) {
   .menu {
     max-height: 0;              /* caché */
     overflow: hidden;           /* masque le contenu */

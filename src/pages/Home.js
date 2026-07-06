@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 // import Header from "./Header";
 import '../styles/Home.css';
 
 function Home() {
     const [result, setResult] = useState("");
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash === "#formulaire-contact") {
+            const element = document.getElementById("formulaire-contact");
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [location]);
 
     const formatPhone = (value) => {
         const digits = value.replace(/\D/g, "").slice(0, 10); // max 10 chiffres
@@ -57,7 +67,8 @@ function Home() {
                 </article>
             </div>
 
-            <form onSubmit={onSubmit}>
+            {/* <Link to="/#formulaire-contact"> */}
+            <form id="formulaire-contact" onSubmit={onSubmit}>
                 <fieldset>Contactez-nous</fieldset>
 
                 <input type="text" name="lastName" placeholder="Votre nom" required />
@@ -73,6 +84,7 @@ function Home() {
                 <textarea name="message" placeholder="Votre message" required/>
                 <input type="submit" value={"Envoyer votre demande"} />
             </form>
+            {/* </Link> */}
         </main>
     );
 }
