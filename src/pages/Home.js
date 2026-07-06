@@ -7,6 +7,11 @@ import '../styles/Home.css';
 function Home() {
     const [result, setResult] = useState("");
 
+    const formatPhone = (value) => {
+        const digits = value.replace(/\D/g, "").slice(0, 10); // max 10 chiffres
+        return digits.replace(/(\d{2})(?=\d)/g, "$1 ");
+    };
+
     const onSubmit = async (event) => {
         event.preventDefault();
         setResult("En cours d'envoi....");
@@ -55,10 +60,10 @@ function Home() {
             <form onSubmit={onSubmit}>
                 <fieldset>Contactez-nous</fieldset>
 
-                <input type="text" name="lastName" placeholder="Votre nom" required/>
-                <input type="text" name="firstName" placeholder="Votre prénom" required/>
+                <input type="text" name="lastName" placeholder="Votre nom" required />
+                <input type="text" name="firstName" placeholder="Votre prénom" required />
                 <input type="email" name="email" placeholder="Votre adresse mail" required/>
-                <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required/>
+                <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required onChange={(e) => {e.target.value = formatPhone(e.target.value); }}/>
 
                 <select name="requestType" required>
                     <option value="">Sélectionnez votre type de demande</option>

@@ -32,9 +32,11 @@ function Candidature(){
                     </div>
                 </article>
             </div>
+            {/* 
             <div class="formulaire-candidature">
                 <FormulaireCandidature/>
-            </div>
+            </div> 
+            */}
         </main>
     );
 }
