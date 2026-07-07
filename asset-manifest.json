@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/gestion-formations-conferences/static/css/main.6dc9c73d.css",
-    "main.js": "/gestion-formations-conferences/static/js/main.233da821.js",
+    "main.css": "/gestion-formations-conferences/static/css/main.f8a7f399.css",
+    "main.js": "/gestion-formations-conferences/static/js/main.667e67cb.js",
     "index.html": "/gestion-formations-conferences/index.html",
-    "main.6dc9c73d.css.map": "/gestion-formations-conferences/static/css/main.6dc9c73d.css.map",
-    "main.233da821.js.map": "/gestion-formations-conferences/static/js/main.233da821.js.map"
+    "main.f8a7f399.css.map": "/gestion-formations-conferences/static/css/main.f8a7f399.css.map",
+    "main.667e67cb.js.map": "/gestion-formations-conferences/static/js/main.667e67cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.6dc9c73d.css",
-    "static/js/main.233da821.js"
+    "static/css/main.f8a7f399.css",
+    "static/js/main.667e67cb.js"
   ]
 }
