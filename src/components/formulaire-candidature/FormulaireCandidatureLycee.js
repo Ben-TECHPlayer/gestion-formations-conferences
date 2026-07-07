@@ -15,7 +15,7 @@ function FormulaireCandidatureLycee(){
         event.preventDefault();
         setResult("En cours d'envoi....");
         const formData = new FormData(event.target);
-        formData.append("access_key", "");
+        formData.append("access_key", "9e3023eb-c5d9-476a-b365-b285eb36b516");
 
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",

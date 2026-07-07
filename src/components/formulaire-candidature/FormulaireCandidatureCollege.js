@@ -15,7 +15,7 @@ function FormulaireCandidatureCollege(){
         event.preventDefault();
         setResult("En cours d'envoi....");
         const formData = new FormData(event.target);
-        formData.append("access_key", "");
+        formData.append("access_key", "f79bbea1-62bc-4051-a3e0-40e7848e3ed8");
 
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",

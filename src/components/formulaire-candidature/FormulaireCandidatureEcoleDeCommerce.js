@@ -15,7 +15,7 @@ function FormulaireCandidatureEcoleDeCommerce(){
         event.preventDefault();
         setResult("En cours d'envoi....");
         const formData = new FormData(event.target);
-        formData.append("access_key", "");
+        formData.append("access_key", "9bb43483-5320-4c16-b1e8-c471ac0ac63a");
 
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
