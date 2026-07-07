@@ -43,16 +43,17 @@ function FormulaireCandidatureEcoleDeCommerce(){
 
             <select name="formationActuelle" required>
                 <option value="">Sélectionnez votre formation actuelle</option>
-                <option value="A">Bac général</option>
-                <option value="B">Bac STMG</option>
-                <option value="C">Bac STI2D</option>
-                <option value="D">Bac STD2A</option>
-                <option value="E">BTS</option>
-                <option value="F">DUT</option>
-                <option value="G">BUT</option>
-                <option value="H">Licence</option>
-                <option value="I">Licence MIAGE</option>
-                <option value="J">Master 1</option>
+                <option value="Bac général">Bac général</option>
+                <option value="Bac STMG">Bac STMG</option>
+                <option value="Bac STI2D">Bac STI2D</option>
+                <option value="Bac STD2A">Bac STD2A</option>
+                <option value="BTS">BTS</option>
+                <option value="DUT">DUT</option>
+                <option value="BUT">BUT</option>
+                <option value="Licence">Licence</option>
+                <option value="Licence professionnelle">Licence professionnelle</option>
+                <option value="Licence MIAGE">Licence MIAGE</option>
+                <option value="Master 1">Master 1</option>
             </select>
 
             <select name="prochaineFormationCommerce" required>

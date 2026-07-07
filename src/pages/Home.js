@@ -78,8 +78,8 @@ function Home() {
 
                 <select name="requestType" required>
                     <option value="">Sélectionnez votre type de demande</option>
-                    <option value="A">Formations</option>
-                    <option value="B">Conférences</option>
+                    <option value="Formations">Formations</option>
+                    <option value="Conférences">Conférences</option>
                 </select>
                 <textarea name="message" placeholder="Votre message" required/>
                 <input type="submit" value={"Envoyer votre demande"} />

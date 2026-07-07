@@ -43,10 +43,10 @@ function FormulaireCandidatureCollege(){
 
             <select name="prochaineClasse" required>
                 <option value="">Sélectionnez la classe à laquelle que rentrerez</option>
-                <option value="A">6ème</option>
-                <option value="B">5ème</option>
-                <option value="C">4ème</option>
-                <option value="D">3ème</option>
+                <option value="6ème">6ème</option>
+                <option value="5ème">5ème</option>
+                <option value="4ème">4ème</option>
+                <option value="3ème">3ème</option>
             </select>
 
             <textarea name="message" placeholder="Votre message" required/>

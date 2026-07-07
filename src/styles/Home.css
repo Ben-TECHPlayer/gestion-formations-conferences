@@ -80,3 +80,37 @@ form input[type=submit]:hover{
     color: white;
     transition: ease-in 0.2s;
 }
+
+form .message-box {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+form .message-box p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+form .message-box button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
