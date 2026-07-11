@@ -8,7 +8,8 @@ import FormulaireCandidatureLycee from './components/formulaire-candidature/Form
 import FormulaireCandidatureEcoleDeCommerce from './components/formulaire-candidature/FormulaireCandidatureEcoleDeCommerce';
 import FormationCaracteristiques from './components/FormationCaracteristiques';
 
-
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminCandidatureDetails from './pages/admin/AdminCandidatureDetails';
 
 import Home from './pages/Home';
 import Formations from './pages/Formations';
@@ -39,6 +40,9 @@ function App() {
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/candidature/:id" element={<AdminCandidatureDetails />} />
+
 
               <Route path="/formations" element={<Formations/>} /> 
               <Route path="/formations/formation-college" element={<FormationCollege/>} />
