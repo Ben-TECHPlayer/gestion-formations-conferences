@@ -25,6 +25,31 @@ function Header() {
                     <NavLink to="/cours" className={({ isActive }) => isActive ? "active" : ""}>
                     Clients
                     </NavLink>
+                    {/* Les clients */}
+                    {/* <NavLink to="/cours/collegiens" className={({ isActive }) => isActive ? "active" : ""}>
+                    Collègiens
+                    </NavLink>
+                    <NavLink to="/cours/lyceens" className={({ isActive }) => isActive ? "active" : ""}>
+                    Lycéens
+                    </NavLink>
+                    <NavLink to="/cours/ecole-de-commerce" className={({ isActive }) => isActive ? "active" : ""}>
+                    Ecole de commerce
+                    </NavLink>
+                    <NavLink to="/cours/entreprises" className={({ isActive }) => isActive ? "active" : ""}>
+                    Entreprises
+                    </NavLink> */}
+                    {/* Clients Entreprises */}
+                    {/* <NavLink to="/cours/entreprises/banques" className={({ isActive }) => isActive ? "active" : ""}>
+                    Banques
+                    </NavLink>
+                    <NavLink to="/cours/entreprises/etablissements-banquieres" className={({ isActive }) => isActive ? "active" : ""}>
+                    Etablissements banquières
+                    </NavLink> */}
+                    {/* 
+                    <NavLink to="/conferences" className={({ isActive }) => isActive ? "active" : ""}>
+                    Conférences
+                    </NavLink>
+                    */}
                     <NavLink to="/#formulaire-contact" className={"contact"}>
                     Contact
                     </NavLink>
