@@ -45,7 +45,7 @@ function Home() {
 
     return (
         <main>
-            <div class="panel-accueil-scrollable">
+            {/* <div class="panel-accueil-scrollable">
                 <article id="panel-accueil">
                     <div class="accueil-item">
                         <div class="accueil-image">
@@ -65,7 +65,7 @@ function Home() {
                         </div>
                     </div>
                 </article>
-            </div>
+            </div> */}
 
             {/* <Link to="/#formulaire-contact"> */}
             <form id="formulaire-contact" onSubmit={onSubmit}>
