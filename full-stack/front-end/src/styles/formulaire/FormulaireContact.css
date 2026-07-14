@@ -1,0 +1,88 @@
+/* PARTIE FORMULAIRE */
+/* Personnalisation de mon formulaire */
+
+/* Création d'animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+form{
+    margin: 0 auto;
+    padding: 25px;
+    box-sizing: border-box;
+    max-width: 400px;
+    text-align: center;
+    background-color: beige;
+    border-radius: 15px;
+    margin-top: 4rem;
+    overflow-x: auto;
+
+    /* Customiation du titre de mon formulaire */
+    fieldset{
+        border: none;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    /* Personnalisation de mes inputs et mon champ de texte */
+    input, form textarea, form select{
+        display: block;
+        width: auto;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        margin: 0 0 20px 0;
+        border-radius: 5px;
+        border: 2px solid #007bff;
+        box-sizing: border-box;
+    }
+
+    /* Personnalisation de mon input de validation */
+    input[type=submit]{
+        background: none;
+        background-color: white;
+        color: #007bff;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    /* Personnalisation de mon input de validation au survol */
+    input[type=submit]:hover{
+        background-color: #007bff;
+        color: white;
+        transition: ease-in 0.2s;
+    }
+
+    /* Création de ma boîte de message informative */
+    .message-box {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        padding: 20px 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* Styliser le texte du MessageBox */
+    .message-box p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    /* Customiser son bouton */
+    .message-box button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
