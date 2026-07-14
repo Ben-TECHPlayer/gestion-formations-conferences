@@ -45,34 +45,32 @@ function FormulaireContact() {
 
 
     return (
-        <main>
-            <form id="formulaire-contact" onSubmit={onSubmit}>
-                <fieldset>Contactez-nous</fieldset>
+        <form id="formulaire-contact" onSubmit={onSubmit}>
+            <fieldset>Contactez-nous</fieldset>
 
-                <input type="text" name="lastName" placeholder="Votre nom" required />
-                <input type="text" name="firstName" placeholder="Votre prénom" required />
-                <input type="email" name="email" placeholder="Votre adresse mail" required/>
-                <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required onChange={(e) => {e.target.value = formatPhone(e.target.value); }}/>
+            <input type="text" name="lastName" placeholder="Votre nom" required />
+            <input type="text" name="firstName" placeholder="Votre prénom" required />
+            <input type="email" name="email" placeholder="Votre adresse mail" required/>
+            <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required onChange={(e) => {e.target.value = formatPhone(e.target.value); }}/>
 
-                <select name="profile" required>
-                    <option value="">Sélectionnez votre type de demande</option>
-                    <option value="Collège">Collége</option>
-                    <option value="Lycée">Lycée</option>
-                    <option value="Ecole de commerce">Ecole de commerce</option>
-                    <option value="Banque">Banque</option>
-                    <option value="Assurance">Assurance</option>
-                    <option value="Etablissement banquier">Etablissement banquier</option>
-                </select>
+            <select name="profile" required>
+                <option value="">Sélectionnez votre type de demande</option>
+                <option value="Collège">Collége</option>
+                <option value="Lycée">Lycée</option>
+                <option value="Ecole de commerce">Ecole de commerce</option>
+                <option value="Banque">Banque</option>
+                <option value="Assurance">Assurance</option>
+                <option value="Etablissement banquier">Etablissement banquier</option>
+            </select>
 
-                <select name="requestType" required>
-                    <option value="">Sélectionnez votre type de demande</option>
-                    <option value="Formations">Formations</option>
-                    <option value="Conférences">Conférences</option>
-                </select>
-                <textarea name="message" placeholder="Votre message" required/>
-                <input type="submit" value={"Envoyer votre demande"} />
-            </form>
-        </main>
+            <select name="requestType" required>
+                <option value="">Sélectionnez votre type de demande</option>
+                <option value="Formations">Formations</option>
+                <option value="Conférences">Conférences</option>
+            </select>
+            <textarea name="message" placeholder="Votre message" required/>
+            <input type="submit" value={"Envoyer votre demande"} />
+        </form>
     );
 }
 
