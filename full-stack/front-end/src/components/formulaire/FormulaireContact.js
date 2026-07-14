@@ -54,8 +54,8 @@ function FormulaireContact() {
             <input type="tel" name="phoneNumber" placeholder="Votre numéro de téléphone" required onChange={(e) => {e.target.value = formatPhone(e.target.value); }}/>
 
             <select name="profile" required>
-                <option value="">Sélectionnez votre type de demande</option>
-                <option value="Collège">Collége</option>
+                <option value="">Sélectionnez votre profil</option>
+                <option value="Collège">Collège</option>
                 <option value="Lycée">Lycée</option>
                 <option value="Ecole de commerce">Ecole de commerce</option>
                 <option value="Banque">Banque</option>
