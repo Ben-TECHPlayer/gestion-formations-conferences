@@ -6,13 +6,13 @@ html {
 }
 
 @media (min-width: 1150px) {
-    header, main, .item-container, main.home-slider-container {
+    header, main {
         margin: 0 4rem 0 4rem;
         padding: 0 4rem 0 4rem;
     }
 }
 
-.menu a.active{
+.menu a.active, .submenus-container a.active{
   color: #007bff;
   transition: ease-in 0.3s;
 }
@@ -26,7 +26,7 @@ html {
     border-radius: 5px;
 }
 
-.menu a#bouton-candidature, .menu a.contact{
+.menu a.contact{
     background: none;
     color: #007bff;
     padding: 0.5rem 1rem;
@@ -34,7 +34,7 @@ html {
     border-radius: 5px;
 }
 
-.menu a#bouton-candidature:hover, .menu a.contact:hover{
+.menu a.contact:hover{
     background: #007bff;
     color: white;
     transition: ease-in 0.3s;
@@ -52,15 +52,19 @@ html {
   flex: 0;
 } */
 
-.header-container a h1{
+.header-title a h1{
     text-decoration: none;
     color: #007bff;
+    /* margin: 0; */
 }
 
 .header-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* flex-direction: column; */
+  /* width: 100%; */
+  /* justify-content: space-between; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
   padding: 1rem 0 2rem;
   flex-wrap: wrap;
 }
@@ -72,6 +76,13 @@ html {
   }
 }
 
+.header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centre le logo et le menu sur le même axe horizontal */
+  width: 100%;
+}
+
 .menu-main {
   display: flex;
   gap: 2rem;
@@ -79,13 +90,18 @@ html {
   order: 1;
 }
 
-.menu-main a {
+.menu-main a, .menu-main button, .submenu a {
   text-decoration: none;
   color: black;
   font-weight: 500;
 }
 
-.menu-main a:hover{
+.menu-main button, .submenu button{
+    font-size: 1rem;
+    font-family: "Samsung Sharp Sans", "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.menu-main a:hover, .menu-main button:hover, .submenu a:hover, .submenu button:hover{
     color: #007bff;
     transition: ease-in 0.3s;
 }
@@ -125,6 +141,18 @@ html {
   }
 }
 
+.submenus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligne les sous-menus sur la droite sous le bouton Clients */
+  width: 100%;
+  /* margin-top: 1rem; */
+}
+
+.submenu-toggle.active {
+    color: #007bff; /* Ton bleu */
+}
+
 .submenu {
   display: flex;
   flex-direction: row;
@@ -139,19 +167,19 @@ html {
   padding-right: 10px; */
 }
 
-@media (min-width: 1150px) {
+/* @media (min-width: 1150px) {
   .submenu{
     margin-right: 5rem;
     padding-right: 5rem;
   }
-}
+} */
 
 .submenu.level1 {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  margin-left: 1rem;
-  order: 2;
+  /* margin-left: 1rem; */
+  /* order: 2; */
 }
 
 .submenu.level2 {
@@ -159,8 +187,9 @@ html {
   flex-basis: 100%;
   flex-direction: row;
   gap: 2rem;
-  margin-left: 2rem;
-  order: 3;
+  margin-top: 1rem;
+  /* margin-left: 2rem; */
+  /* order: 3; */
 }
 
 .submenu-toggle {
