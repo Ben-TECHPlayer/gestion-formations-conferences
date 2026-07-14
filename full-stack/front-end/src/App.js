@@ -5,10 +5,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
+import About from './pages/About';
 
 import './styles/Footer.css';
 import './styles/Header.css';
-import './styles/Home.css';
+import './styles/pages/Home.css';
+import './styles/pages/About.css';
 import './styles/index.css';
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
 
 
-              {/* <Route path="/about" element={<About/>} />  */}
+              <Route path="/about" element={<About/>} /> 
               {/* <Route path="/paiement" element={<Paiement />} /> */}
               {/* <Route path="/conferences" element={<Conferences />} /> */}
               {/* <Route path="/cours" element={<Cours />} /> */}

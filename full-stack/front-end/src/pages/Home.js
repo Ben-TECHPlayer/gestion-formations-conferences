@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 // import Header from "./Header";
-import '../styles/Home.css';
+import '../styles/pages/Home.css';
 import FormulaireContact from '../components/formulaire/FormulaireContact';
 
 function Home() {
