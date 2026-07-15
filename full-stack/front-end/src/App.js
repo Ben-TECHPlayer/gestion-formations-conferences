@@ -6,12 +6,14 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Paiement from './pages/Paiement';
 
 import './styles/Footer.css';
 import './styles/Header.css';
 import './styles/pages/Home.css';
 import './styles/pages/About.css';
 import './styles/index.css';
+import CoursCollege from './components/cours/CoursCollege';
 
 function App() {
   return (
@@ -24,9 +26,9 @@ function App() {
 
 
               <Route path="/about" element={<About/>} /> 
-              {/* <Route path="/paiement" element={<Paiement />} /> */}
+              <Route path="/paiement" element={<Paiement />} />
               {/* <Route path="/conferences" element={<Conferences />} /> */}
-              {/* <Route path="/cours" element={<Cours />} /> */}
+              <Route path="/cours/collegiens" element={<CoursCollege />} />
           </Routes>
           <Footer />
         </div>
