@@ -6,9 +6,12 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Cours from './pages/Cours';
+import CoursCollege from './components/cours/CoursCollege';
 
 import './styles/Footer.css';
 import './styles/Header.css';
+import './styles/pages/Cours.css';
 import './styles/pages/Home.css';
 import './styles/pages/About.css';
 import './styles/index.css';
@@ -24,9 +27,11 @@ function App() {
 
 
               <Route path="/about" element={<About/>} /> 
+              <Route path="/cours" element={<Cours />} />
+              <Route path="/cours/collegiens" element={<CoursCollege />} />
               {/* <Route path="/paiement" element={<Paiement />} /> */}
               {/* <Route path="/conferences" element={<Conferences />} /> */}
-              {/* <Route path="/cours" element={<Cours />} /> */}
+              
           </Routes>
           <Footer />
         </div>
