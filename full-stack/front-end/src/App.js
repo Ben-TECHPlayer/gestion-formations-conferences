@@ -16,7 +16,6 @@ import './styles/pages/Home.css';
 import './styles/pages/About.css';
 import './styles/pages/Paiement.css';
 import './styles/index.css';
-import CoursCollege from './components/cours/CoursCollege';
 
 function App() {
   return (
