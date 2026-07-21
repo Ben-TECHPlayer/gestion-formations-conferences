@@ -1,7 +1,7 @@
 /* PARTIE FORMULAIRE */
 /* Personnalisation de mon formulaire */
 
-/* Création d'animation */
+/* Créer l'animation pour mon messageBox */
 @keyframes fadeIn {
   from { opacity: 0; transform: translate(-50%, -60%); }
   to { opacity: 1; transform: translate(-50%, -50%); }

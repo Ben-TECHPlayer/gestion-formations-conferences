@@ -10,6 +10,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 
+// Pages de cours
+import CoursCollege from './pages/cours/CoursCollege';
+
+// Paiement
+import Paiement from './pages/Paiement';
+import RetourMastercard from './pages/RetourMasterCard';
+
 // ---- Importer nos feuilles de style ---- //
 
 // Customiser nos composants
@@ -19,6 +26,8 @@ import './styles/Header.css';
 // Customiser nos pages
 import './styles/pages/Home.css';
 import './styles/pages/About.css';
+import './styles/pages/Cours.css';
+import './styles/pages/Paiement.css';
 
 import './styles/index.css';
 
@@ -34,8 +43,13 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} /> 
                         <Route path="/about" element={<About/>} />
+
+                        {/* Partie Clients */}
                         <Route path="/cours/collegiens" element={<CoursCollege />} /> 
+
+                        {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
+                        <Route path="/retour-mastercard" element={<RetourMastercard />} />
                         {/* <Route path="/conferences" element={<Conferences />} /> */}
                     </Routes>
                     {/* Ajouter notre footer */}
