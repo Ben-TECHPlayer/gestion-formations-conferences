@@ -68,7 +68,7 @@ function Paiement() {
 
     // Configurer globalement PayPal
     const initialOptions = {
-        "client-id": "test", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
+        "client-id": "Abn4I9lzVopG5mFZm2JBFz5qw8u1UIhtclMtFOacAi3sxu-yB_B4JRwNmJnH-NYD75p1vrZfrYOfUUYC", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
         currency: "USD",
         intent: "capture",
     };
@@ -130,39 +130,42 @@ function Paiement() {
 
                 {/* Intégrer PayPal */}
                 <div style={{ maxWidth: "250px" }}> {/* Limite la largeur car les boutons prennent 100% de l'espace parent par défaut */}
-                    <PayPalButtons 
-                        // 1. Création de la transaction avec les détails du cours
+                    <PayPalButtons
                         createOrder={(data, actions) => {
                             return actions.order.create({
-                                purchase_units: [
-                                    {
-                                        description: "Module de formation pratique : Vente et Management",
-                                        amount: {
-                                            currency_code: "USD",
-                                            value: "789.53",
-                                        },
-                                    },
-                                ],
+                                purchase_units: [{
+                                    amount: { value: "789.53" } // Le prix de votre cours
+                                }]
                             });
                         }}
                         // 2. Ce qui se passe quand le client valide l'achat sur la popup PayPal
                         onApprove={async (data, actions) => {
-                            const details = await actions.order.capture();
-                            const nomClient = details.payer.name.given_name;
-                            alert(`Paiement réussi, merci ${nomClient} ! L'accès au cours est débloqué.`);
-                            
-                            // C'est ici que vous ferez un appel fetch/axios vers votre backend 
-                            // pour enregistrer l'achat dans la base de données.
-                        }}
-                        // 3. Gestion des erreurs (fondamental pour l'expérience utilisateur)
-                        onError={(err) => {
-                            console.error("Erreur de paiement PayPal:", err);
-                            alert("Une erreur est survenue lors du paiement avec PayPal.");
+                            // 1. LA LIGNE MANQUANTE : On encaisse l'argent (le statut passe à COMPLETED)
+                            await actions.order.capture();
+
+                            // 2. On contacte le serveur PHP seulement APRÈS avoir capturé
+                            try {
+                                const response = await fetch("http://localhost:8000/valider-paiement.php", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json" // Très important pour le PHP
+                                    },
+                                    body: JSON.stringify({ orderID: data.orderID })
+                                });
+
+                                const result = await response.json();
+
+                                if (result.success) {
+                                    alert(result.message); // Affiche "Paiement de 789.53$ validé..."
+                                } else {
+                                    alert("Erreur de validation : " + result.message);
+                                }
+                            } catch (error) {
+                                console.error("Erreur de communication :", error);
+                            }
                         }}
                     />
                 </div>
-                
-                
             </main>
         </PayPalScriptProvider>
     );
