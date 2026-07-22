@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { Link, useLocation } from 'react-router-dom';
 
 // Importer la customisation de la page de cours
-import '../styles/pages/Cours.css';
+import '../../styles/pages/Cours.css';
 
 function CoursCollege() {
 
