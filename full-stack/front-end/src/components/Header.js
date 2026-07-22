@@ -1,12 +1,15 @@
+// Importer React ainsi que les routeurs
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 
 function Header() {
 
+    // Mettre les boutons en off par défaut
     const [menuOpen, setMenuOpen] = useState(false);
     const [boutonClientsOpen, setBoutonClientsOpen] = useState(false);
     const [boutonEntreprisesOpen, setBoutonEntreprisesOpen] = useState(false);
 
+    // Gérer les comportements des boutons
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
@@ -35,7 +38,7 @@ function Header() {
                 
                     <nav className="menu">
 
-                        {/* Ligne principale */}
+                        {/* On instaure notre principale */}
                         <div className="menu-main">
                             <NavLink to="/about">A propos de nous</NavLink>
 
@@ -51,7 +54,7 @@ function Header() {
                 </div>
                 {/* ------------------------------------------------------------------- */}
 
-                    {/* Sous-menu Clients */}
+                {/* On fait le sous-menu pour les catégories de cours, donc nos clients */}
                 <div className="submenus-container">
                     {boutonClientsOpen && (
                         <div className="submenu level1">
@@ -65,7 +68,7 @@ function Header() {
                         </div>
                     )}
 
-                    {/* Sous-menu Entreprises */}
+                    {/* On fait le sous-menu pour les catégories d'entreprises spécialisées en banque */}
                     {boutonEntreprisesOpen && (
                         <div className="submenu level2">
                             <NavLink to="/cours/entreprises/banques">Banques</NavLink>

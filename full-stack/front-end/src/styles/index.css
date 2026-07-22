@@ -1,8 +1,7 @@
 html {
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
-  font-family: "Samsung Sharp Sans", "Segoe UI", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  /* Définir notre police */
+  font-family: "Samsung Sharp Sans", "Segoe UI", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; 
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: azure;
@@ -17,16 +16,17 @@ html {
   /* text-decoration: none; */
 }
 
-a {
-  text-decoration: none !important;
-}
-
 main{
   flex-grow: 1;
 }
 
 footer{
   padding: 10px;
+}
+
+/* Enlever les soulignures étranges */
+a {
+  text-decoration: none !important;
 }
 
 code {

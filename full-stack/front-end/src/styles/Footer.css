@@ -1,4 +1,5 @@
 footer {
+    /* Personnaliser le pied de la page */
     top: 0;
     background-color: #007bFF;
     color: white;
@@ -9,6 +10,53 @@ footer {
     align-items: center; 
     justify-content: space-between;
     padding: 10px;
+
+    /* Mettre le paragraphe au centre */
+    p{
+        text-align: center;
+    }
+
+    /* Mettre nos droits d'auteur en colonne et centrer verticalement */
+    .droits-auteur{
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    /* Mettre ses liens utiles à droite en centrant bien les icônes horizontalement */
+    .contact-icons {
+        float: right;
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Espacement entre les icônes */
+    }
+
+    /* Mettre les icônes en petit */
+    .contact-icons img {
+        width: 30px;
+        height: auto;
+    }
+}
+
+/* Mettre en place le responsive design pour faciliter l'utilisation sur smartphone */
+@media(max-width: 300px){
+    footer .contact-icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    footer .contact-icons img {
+        width: 50px;
+        height: auto;
+    }
+}
+
+@media(max-width: 170px){
+    footer .contact-icons {
+        display: flex;
+        justify-content: center; /* Centrer les icônes horizontalement */
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 440px) {
@@ -17,55 +65,9 @@ footer {
     }
 }
 
-.marge{
-    margin-top: -0.5rem;
-}
-
 @media (min-width: 1150px) {
     footer{
         margin: 2rem 0 0 0;
         padding: 0 2rem 0 2rem;
     }
-}
-
-footer .droits-auteur{
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-
-footer p{
-    text-align: center;
-}
-
-.contact-icons {
-    float: right;
-    display: flex;
-    justify-content: center; /* Centrer les icônes horizontalement */
-    gap: 20px; /* Espacement entre les icônes */
-}
-
-@media(max-width: 300px){
-    .contact-icons {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-icons img {
-        width: 50px; /* Taille des images */
-        height: auto;
-    }
-}
-
-@media(max-width: 170px){
-    .contact-icons {
-        display: flex;
-        justify-content: center; /* Centrer les icônes horizontalement */
-        flex-direction: column;
-    }
-}
-
-.contact-icons img {
-    width: 30px; /* Taille des images */
-    height: auto;
 }

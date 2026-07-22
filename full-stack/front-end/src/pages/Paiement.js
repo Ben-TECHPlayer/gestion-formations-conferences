@@ -1,7 +1,11 @@
+// Importer React ainsi que ses hooks, ses routeurs
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+// Importer les dépendances PayPal pour permettre la mise en place du paiement par PayPal
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useForm } from "react-hook-form";
+
+// Importer la customisation de cette page
 import '../styles/pages/Paiement.css';
 
 function Paiement() {
@@ -10,7 +14,7 @@ function Paiement() {
     const [isMasterpassLoaded, setIsMasterpassLoaded] = useState(false);
     const [isApplePayAvailable, setIsApplePayAvailable] = useState(true); // Apple Pay
 
-    // Ce useEffect charge le script au démarrage du composant
+    // Charger le script au démarrage du composant
     useEffect(() => {
         // 1. Chargement de Masterpass
         if (window.masterpass) {
@@ -62,7 +66,7 @@ function Paiement() {
         // Quand vous serez prêt, c'est ici qu'on créera l'objet new ApplePaySession(...)
     };
 
-    // Configuration globale de PayPal
+    // Configurer globalement PayPal
     const initialOptions = {
         "client-id": "test", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
         currency: "USD",
@@ -127,41 +131,33 @@ function Paiement() {
                 {/* Intégrer PayPal */}
                 <div style={{ maxWidth: "250px" }}> {/* Limite la largeur car les boutons prennent 100% de l'espace parent par défaut */}
                     <PayPalButtons 
+                        // 1. Création de la transaction avec les détails du cours
                         createOrder={(data, actions) => {
                             return actions.order.create({
-                                purchase_units: [{
-                                    description: "Module de travaux pratiques",
-                                    amount: { currency_code: "USD", value: "789.53" },
-                                }],
+                                purchase_units: [
+                                    {
+                                        description: "Module de formation pratique : Vente et Management",
+                                        amount: {
+                                            currency_code: "USD",
+                                            value: "789.53",
+                                        },
+                                    },
+                                ],
                             });
                         }}
+                        // 2. Ce qui se passe quand le client valide l'achat sur la popup PayPal
                         onApprove={async (data, actions) => {
-                            // L'utilisateur a validé sur la popup PayPal.
-                            console.log("Validation côté client réussie. Vérification serveur en cours pour l'ID :", data.orderID);
-
-                            try {
-                                // On envoie l'orderID à votre script PHP local
-                                const response = await fetch("http://localhost/votre_dossier_projet/api/valider-paiement.php", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({ orderID: data.orderID })
-                                });
-
-                                const result = await response.json();
-
-                                if (result.success) {
-                                    alert("Paiement vérifié avec succès ! Votre accès au cours pratique est maintenant débloqué.");
-                                    // Ici, vous pouvez rediriger l'utilisateur vers son tableau de bord :
-                                    // window.location.href = "/mes-cours";
-                                } else {
-                                    alert("Erreur de validation : " + result.message);
-                                }
-                            } catch (error) {
-                                console.error("Erreur de communication avec le serveur PHP :", error);
-                                alert("Impossible de contacter le serveur pour vérifier le paiement.");
-                            }
+                            const details = await actions.order.capture();
+                            const nomClient = details.payer.name.given_name;
+                            alert(`Paiement réussi, merci ${nomClient} ! L'accès au cours est débloqué.`);
+                            
+                            // C'est ici que vous ferez un appel fetch/axios vers votre backend 
+                            // pour enregistrer l'achat dans la base de données.
+                        }}
+                        // 3. Gestion des erreurs (fondamental pour l'expérience utilisateur)
+                        onError={(err) => {
+                            console.error("Erreur de paiement PayPal:", err);
+                            alert("Une erreur est survenue lors du paiement avec PayPal.");
                         }}
                     />
                 </div>

@@ -1,3 +1,4 @@
+// Importer React ainsi que ses hooks, routeurs et paramètres de recherches
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ function RetourMastercard() {
         const transactionId = searchParams.get('transactionId'); 
 
         if (token || transactionId) {
-            // Le client est bien revenu de Mastercard avec un jeton
+            // Confirmer que le client est bien revenu de Mastercard avec un jeton
             setStatut('Paiement autorisé ! Votre accès aux cours de management est débloqué.');
             console.log("Données de transaction reçues :", { token, verifier, transactionId });
             
