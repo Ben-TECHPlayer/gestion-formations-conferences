@@ -64,7 +64,7 @@ function Paiement() {
 
     // Configuration globale de PayPal
     const initialOptions = {
-        "client-id": "test", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
+        "client-id": "Abn4I9lzVopG5mFZm2JBFz5qw8u1UIhtclMtFOacAi3sxu-yB_B4JRwNmJnH-NYD75p1vrZfrYOfUUYC", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
         currency: "USD",
         intent: "capture",
     };
@@ -126,25 +126,24 @@ function Paiement() {
 
                 {/* Intégrer PayPal */}
                 <div style={{ maxWidth: "250px" }}> {/* Limite la largeur car les boutons prennent 100% de l'espace parent par défaut */}
-                    <PayPalButtons 
+                    <PayPalButtons
                         createOrder={(data, actions) => {
                             return actions.order.create({
                                 purchase_units: [{
-                                    description: "Module de travaux pratiques",
-                                    amount: { currency_code: "USD", value: "789.53" },
-                                }],
+                                    amount: { value: "789.53" } // Le prix de votre cours
+                                }]
                             });
                         }}
                         onApprove={async (data, actions) => {
-                            // L'utilisateur a validé sur la popup PayPal.
-                            console.log("Validation côté client réussie. Vérification serveur en cours pour l'ID :", data.orderID);
+                            // 1. LA LIGNE MANQUANTE : On encaisse l'argent (le statut passe à COMPLETED)
+                            await actions.order.capture();
 
+                            // 2. On contacte le serveur PHP seulement APRÈS avoir capturé
                             try {
-                                // On envoie l'orderID à votre script PHP local
-                                const response = await fetch("http://localhost/votre_dossier_projet/api/valider-paiement.php", {
+                                const response = await fetch("http://localhost:8000/valider-paiement.php", {
                                     method: "POST",
                                     headers: {
-                                        "Content-Type": "application/json",
+                                        "Content-Type": "application/json" // Très important pour le PHP
                                     },
                                     body: JSON.stringify({ orderID: data.orderID })
                                 });
@@ -152,21 +151,16 @@ function Paiement() {
                                 const result = await response.json();
 
                                 if (result.success) {
-                                    alert("Paiement vérifié avec succès ! Votre accès au cours pratique est maintenant débloqué.");
-                                    // Ici, vous pouvez rediriger l'utilisateur vers son tableau de bord :
-                                    // window.location.href = "/mes-cours";
+                                    alert(result.message); // Affiche "Paiement de 789.53$ validé..."
                                 } else {
                                     alert("Erreur de validation : " + result.message);
                                 }
                             } catch (error) {
-                                console.error("Erreur de communication avec le serveur PHP :", error);
-                                alert("Impossible de contacter le serveur pour vérifier le paiement.");
+                                console.error("Erreur de communication :", error);
                             }
                         }}
                     />
                 </div>
-                
-                
             </main>
         </PayPalScriptProvider>
     );

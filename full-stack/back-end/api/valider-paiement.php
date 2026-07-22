@@ -1,16 +1,17 @@
 <?php
-// 1. Gérer les CORS pour que React (localhost:3000) puisse appeler ce script PHP
+// 1. Autoriser React (ou n'importe quel domaine local) à parler à cette API
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost:3000/gestion-formations-conferences/'); // Ajustez si votre port React est différent
-header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Methods: POST');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 
-// Si c'est une requête préliminaire (preflight) OPTIONS de React, on arrête là
+// 2. Gérer la requête de pré-vérification (Preflight) automatique du navigateur
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
+    http_response_code(200);
+    exit();
 }
 
-// 2. Récupérer les données envoyées par React
+// 3. Récupérer les données envoyées par React
 $jsonDonnees = file_get_contents('php://input');
 $data = json_decode($jsonDonnees, true);
 $orderID = $data['orderID'] ?? null;
@@ -28,6 +29,7 @@ $secret = "EIVoV_8n9YW3MhP157EULCWz4z7-4GQWvsx9YqSGITOTGRT9xbBLdnbgqqt_aOkOPWSct
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://api-m.sandbox.paypal.com/v1/oauth2/token");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
 curl_setopt($ch, CURLOPT_USERPWD, $clientId . ":" . $secret);
 $headers = [
@@ -49,6 +51,7 @@ $accessToken = $tokenInfo['access_token'];
 // 4. Vérifier la transaction avec l'API Orders de PayPal en utilisant le jeton
 curl_setopt($ch, CURLOPT_URL, "https://api-m.sandbox.paypal.com/v2/checkout/orders/" . $orderID);
 curl_setopt($ch, CURLOPT_HTTPGET, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_USERPWD, ""); // On efface les credentials précédents
 $headersAuth = [
     "Content-Type: application/json",
