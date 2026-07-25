@@ -15,7 +15,6 @@ import CoursCollege from './pages/cours/CoursCollege';
 
 // Paiement
 import Paiement from './pages/Paiement';
-import RetourMastercard from './pages/RetourMasterCard';
 
 // ---- Importer nos feuilles de style ---- //
 
@@ -46,16 +45,12 @@ function App() {
 
                         {/* Partie Clients */}
                         <Route path="/cours/collegiens" element={<CoursCollege />} /> 
-
-                        {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
-                        <Route path="/retour-mastercard" element={<RetourMastercard />} />
                         {/* <Route path="/conferences" element={<Conferences />} /> */}
                     </Routes>
-                    {/* Ajouter notre footer */}
-                    <Footer />
-                </div>
-            </Router>
+                  </div>
+                </Router>
+          <Footer />
         </div>
     );
 }
