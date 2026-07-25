@@ -6,22 +6,22 @@ import '../styles/pages/Paiement.css';
 
 function Paiement() {
 
-    // Ce state permet de savoir si Mastercard est prêt
-    const [isMasterpassLoaded, setIsMasterpassLoaded] = useState(false);
-    const [isApplePayAvailable, setIsApplePayAvailable] = useState(true); // Apple Pay
+    // Ce state permet de savoir si Apple Pay est prêt
+    const [isApplePayAvailable, setIsApplePayAvailable] = useState(true);
+    // const [isMasterpassLoaded, setIsMasterpassLoaded] = useState(false);
 
     // Ce useEffect charge le script au démarrage du composant
     useEffect(() => {
         // 1. Chargement de Masterpass
-        if (window.masterpass) {
-            setIsMasterpassLoaded(true);
-        } else {
-            const script = document.createElement('script');
-            script.src = "https://sandbox.masterpass.com/integration/merchant.js";
-            script.async = true;
-            script.onload = () => setIsMasterpassLoaded(true);
-            document.body.appendChild(script);
-        }
+        // if (window.masterpass) {
+        //     setIsMasterpassLoaded(true);
+        // } else {
+        //     const script = document.createElement('script');
+        //     script.src = "https://sandbox.masterpass.com/integration/merchant.js";
+        //     script.async = true;
+        //     script.onload = () => setIsMasterpassLoaded(true);
+        //     document.body.appendChild(script);
+        // }
 
         // 2. Détection d'Apple Pay
         // On vérifie si l'API est présente dans la fenêtre du navigateur
@@ -30,32 +30,32 @@ function Paiement() {
         }
     }, []);
 
-    const handleMasterpassCheckout = () => {
-        console.log("1. Bouton cliqué !");
+    // const handleMasterpassCheckout = () => {
+    //     console.log("1. Bouton cliqué !");
         
-        if (window.masterpass) {
-            console.log("2. L'objet Masterpass est bien détecté dans la page.");
-            try {
-                window.masterpass.checkout({
-                    "checkoutId": "c26966b0eae94a3fbe47f994b94394b2", 
-                    "allowedCardTypes": ["master,amex,diners,discover,jcb,maestro,visa"], 
-                    "amount": "789.53", 
-                    "currency": "USD", 
-                    "shippingLocationProfile": "US,AU,BE", 
-                    "suppress3Ds": false, 
-                    "suppressShippingAddress": false, 
-                    "cartId": "1efed583-1824-436a-869f-286ebdb22ae2", 
-                    "callbackUrl": "http://localhost:3000/retour-mastercard" 
-                });
-                console.log("3. La requête de checkout a été envoyée.");
-            } catch (error) {
-                console.error("ERREUR lors de l'appel à masterpass.checkout :", error);
-            }
-        } else {
-            // Cela ne devrait plus arriver avec la sécurité du bouton désactivé
-            console.error("ERREUR CRITIQUE : masterpass n'est toujours pas là.");
-        }
-    };
+    //     if (window.masterpass) {
+    //         console.log("2. L'objet Masterpass est bien détecté dans la page.");
+    //         try {
+    //             window.masterpass.checkout({
+    //                 "checkoutId": "c26966b0eae94a3fbe47f994b94394b2", 
+    //                 "allowedCardTypes": ["master,amex,diners,discover,jcb,maestro,visa"], 
+    //                 "amount": "789.53", 
+    //                 "currency": "USD", 
+    //                 "shippingLocationProfile": "US,AU,BE", 
+    //                 "suppress3Ds": false, 
+    //                 "suppressShippingAddress": false, 
+    //                 "cartId": "1efed583-1824-436a-869f-286ebdb22ae2", 
+    //                 "callbackUrl": "http://localhost:3000/retour-mastercard" 
+    //             });
+    //             console.log("3. La requête de checkout a été envoyée.");
+    //         } catch (error) {
+    //             console.error("ERREUR lors de l'appel à masterpass.checkout :", error);
+    //         }
+    //     } else {
+    //         // Cela ne devrait plus arriver avec la sécurité du bouton désactivé
+    //         console.error("ERREUR CRITIQUE : masterpass n'est toujours pas là.");
+    //     }
+    // };
 
     const handleApplePayClick = () => {
         alert("Logique Apple Pay à implémenter plus tard !");
@@ -78,10 +78,9 @@ function Paiement() {
                 <h1>Paiement</h1>
                 <h2>Cours</h2>
                 {/* Intégrer cartes(MasterCard, VISA, CB, American Express) */}
-                <div style={{ marginBottom: '20px' }}>
+                {/* <div style={{ marginBottom: '20px' }}>
                     <button 
                         onClick={handleMasterpassCheckout} 
-                        /* Le bouton est grisé et incliquable tant que le script n'est pas là */
                         disabled={!isMasterpassLoaded}
                         style={{ 
                             border: 'none', 
@@ -96,9 +95,8 @@ function Paiement() {
                             alt="Payer avec Click to Pay" 
                         />
                     </button>
-                    {/* Petit message d'attente pour comprendre ce qui se passe */}
                     {!isMasterpassLoaded && <p style={{ fontSize: '12px', color: 'gray' }}>Chargement du paiement sécurisé...</p>}
-                </div>
+                </div> */}
 
                 {/* Intégrer Apple Pay */}
                 {isApplePayAvailable && (
@@ -130,33 +128,39 @@ function Paiement() {
                         createOrder={(data, actions) => {
                             return actions.order.create({
                                 purchase_units: [{
-                                    amount: { value: "789.53" } // Le prix de votre cours
-                                }]
+                                    amount: { value: "10.53" } // Le prix de votre cours
+                                }],
+                                application_context: {
+                                    shipping_preference: "NO_SHIPPING" 
+                                }
                             });
                         }}
                         onApprove={async (data, actions) => {
-                            // 1. LA LIGNE MANQUANTE : On encaisse l'argent (le statut passe à COMPLETED)
-                            await actions.order.capture();
-
-                            // 2. On contacte le serveur PHP seulement APRÈS avoir capturé
                             try {
+                                const coursActuel = "COURS_PRATIQUE_01"; 
+
                                 const response = await fetch("http://localhost:8000/valider-paiement.php", {
                                     method: "POST",
                                     headers: {
-                                        "Content-Type": "application/json" // Très important pour le PHP
+                                        "Content-Type": "application/json"
                                     },
-                                    body: JSON.stringify({ orderID: data.orderID })
+                                    body: JSON.stringify({ 
+                                        orderID: data.orderID,
+                                        id_cours: coursActuel
+                                    })
                                 });
 
-                                const result = await response.json();
+                                const resultat = await response.json();
 
-                                if (result.success) {
-                                    alert(result.message); // Affiche "Paiement de 789.53$ validé..."
+                                if (resultat.success) {
+                                    alert("Succès : " + resultat.message);
                                 } else {
-                                    alert("Erreur de validation : " + result.message);
+                                    alert("Erreur lors de la validation : " + resultat.message);
                                 }
-                            } catch (error) {
-                                console.error("Erreur de communication :", error);
+                                
+                            } catch (erreur) {
+                                console.error("Erreur de communication :", erreur);
+                                alert("Une erreur de réseau est survenue.");
                             }
                         }}
                     />

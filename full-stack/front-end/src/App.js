@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Paiement from './pages/Paiement';
-import RetourMastercard from './pages/RetourMasterCard';
 
 import './styles/Footer.css';
 import './styles/Header.css';
@@ -31,7 +30,6 @@ function App() {
               <Route path="/paiement" element={<Paiement />} />
               {/* <Route path="/conferences" element={<Conferences />} /> */}
               {/* <Route path="/cours/collegiens" element={<CoursCollege />} /> */}
-              <Route path="/retour-mastercard" element={<RetourMastercard />} />
           </Routes>
           <Footer />
         </div>
