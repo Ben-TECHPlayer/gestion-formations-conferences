@@ -13,8 +13,8 @@ function Footer() {
 
         {/* Inclure les liens de ses réseaux sociaux */}
         <div class="contact-icons">
-            <a href="http://www.linkedin.com/in/chamsoudine-b-882803a5/"><img src={`${process.env.PUBLIC_URL}/assets/linkedin.png`} alt="LinkedIn" /></a>
-            <a href="https://tiktok.com/"><img src={`${process.env.PUBLIC_URL}/assets/tiktok.png`} alt="TikTok" /></a>
+            <a href="http://www.linkedin.com/in/chamsoudine-b-882803a5/"><img src={`${process.env.PUBLIC_URL}/assets/images/linkedin.png`} alt="LinkedIn" /></a>
+            <a href="https://tiktok.com/"><img src={`${process.env.PUBLIC_URL}/assets/images/tiktok.png`} alt="TikTok" /></a>
         </div>
     </footer>
     );
