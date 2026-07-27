@@ -4,11 +4,13 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Importer nos composants réutilisables
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 // ---- Importer nos feuilles de style ---- //
 
 // Customiser nos composants
 import './styles/Header.css';
+import './styles/Footer.css';
 
 import './styles/index.css';
 
@@ -20,6 +22,8 @@ function App() {
                 <div className="App">
                     {/* Ajouter notre header qui est notre menu */}
                     <Header/>
+                    {/* Ajouter notre footer */}
+                    <Footer/>
                 </div>
             </Router>
         </div>
