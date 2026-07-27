@@ -10,6 +10,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 
+// Pages de cours
+import CoursCollege from './pages/cours/CoursCollege';
+
 // Page de paiement
 import Paiement from './pages/Paiement';
 
@@ -22,6 +25,7 @@ import './styles/Footer.css';
 // Customiser nos pages
 import './styles/pages/Home.css';
 import './styles/pages/About.css';
+import './styles/pages/Cours.css';
 import './styles/pages/Paiement.css';
 
 import './styles/index.css';
@@ -38,10 +42,15 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About/>} /> 
+
+                        {/* Partie Clients */}
+                        <Route path="/cours/collegiens" element={<CoursCollege />} /> 
+
+                        {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
                     </Routes>
                     {/* Ajouter notre footer */}
-                    <Footer/> 
+                    <Footer/>
                 </div>
             </Router>
         </div>
