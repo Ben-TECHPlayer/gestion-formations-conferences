@@ -8,7 +8,8 @@ function App() {
             {/* Ajouter notre routeur et mettre en marche pour naviguer */}
             <Router>
                 <div className="App">
-                    
+                    {/* Ajouter notre footer */}
+                    <Footer/>
                 </div>
             </Router>
         </div>
