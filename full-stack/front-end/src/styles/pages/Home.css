@@ -1,0 +1,34 @@
+main {
+    /* Activer le défilement automatique pour faciliter la lecture et laisser de l'espace entre les blocs */
+    .panel-accueil-scrollable{
+        #panel-accueil{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 30px;
+            overflow-x: auto;
+        }
+
+        /* Mettre chaque bloc en forme */
+        .accueil-item{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 0 10px black;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+
+            /* Customiser l'image */
+            .accueil-image img{
+                width: 100%;
+                height: auto;
+            }
+
+            h2, p{
+                margin: 10px 0 10px 10px;
+            }
+        }
+    }
+}
