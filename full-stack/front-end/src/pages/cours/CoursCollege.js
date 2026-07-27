@@ -35,7 +35,7 @@ function CoursCollege() {
                         {/* Demander aux utilisateurs de payer */}
                         <div className="emplacement-paiement">
                             <Link to="/paiement" className="bouton-paiement">Payer</Link>
-                            <img src={`${process.env.PUBLIC_URL}/assets/PaiementSecuriseLogo.png`} alt="Secure pay" />
+                            <img src={`${process.env.PUBLIC_URL}/assets/images/PaiementSecuriseLogo.png`} alt="Secure pay" />
                         </div>
                     </div>
                 </div>
