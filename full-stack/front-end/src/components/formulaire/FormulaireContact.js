@@ -1,13 +1,12 @@
 // Importer React ainsi que ses hooks, ses routeurs
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useLocation } from 'react-router-dom';
 
 // Importer la customisation du formulaire
 import '../../styles/formulaire/FormulaireContact.css';
 
 function FormulaireContact() {
-    const [result, setResult] = useState("");
+    const [setResult] = useState("");
     const location = useLocation();
 
     // Permettre la navigation rapide vers le formulaire
