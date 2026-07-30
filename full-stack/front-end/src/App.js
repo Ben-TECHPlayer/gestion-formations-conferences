@@ -12,6 +12,13 @@ import About from './pages/About';
 
 // Pages de cours
 import CoursCollege from './pages/cours/CoursCollege';
+import CoursLycee from './pages/cours/CoursLycee';
+import CoursEcoleDeCommerce from './pages/cours/CoursEcoleDeCommerce';
+
+import CoursBanque from './pages/cours/CoursBanque';
+import CoursAssurance from './pages/cours/CoursAssurance';
+import CoursEtablissementBanquier from './pages/cours/CoursEtablissementBanquier';
+
 
 // Page de paiement
 import Paiement from './pages/Paiement';
@@ -45,6 +52,13 @@ function App() {
 
                         {/* Partie Clients */}
                         <Route path="/cours/collegiens" element={<CoursCollege />} /> 
+                        <Route path="/cours/lyceens" element={<CoursLycee />} />
+                        <Route path="/cours/ecole-de-commerce" element={<CoursEcoleDeCommerce />} />
+
+                        {/* Partie Entreprises */}
+                        <Route path="/cours/entreprises/banques" element={<CoursBanque />} />
+                        <Route path="/cours/entreprises/assurances" element={<CoursAssurance />} />
+                        <Route path="/cours/entreprises/etablissements-banquiers" element={<CoursEtablissementBanquier />} />
 
                         {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
