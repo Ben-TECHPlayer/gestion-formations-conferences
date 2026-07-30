@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
-function CoursCollege() {
+function CoursEcoleDeCommerce() {
     return (
         <main className="cours-page">
             <div className="cours-container">
@@ -69,4 +69,4 @@ function CoursCollege() {
     );
 }
 
-export default CoursCollege;
+export default CoursEcoleDeCommerce;
