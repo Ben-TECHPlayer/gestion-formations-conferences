@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
-function CoursCollege() {
+function CoursEcoleDeCommerce() {
     return (
         <main className="cours-page">
             <div className="cours-container">
                 <div className="cours-header">
-                    <h1>Cours & Ateliers pour les Collégiens</h1>
-                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance dès le collège.</p>
+                    <h1>Cours & Ateliers pour les étudiants en école de commerce</h1>
+                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance dès le cursus en école de commerce.</p>
                 </div>
 
                 <div className="infos-cours">
@@ -31,7 +31,7 @@ function CoursCollege() {
                     <div className="tarif-cours">
                         <div className="prix-cours">
                             <h3>Tarif de l'atelier</h3>
-                            <p className="montant">150€</p>
+                            <p className="montant">260€</p>
                             <span className="details-tarif">Accès complet à tous les modules pratiques</span>
                         </div>
                         
@@ -69,4 +69,4 @@ function CoursCollege() {
     );
 }
 
-export default CoursCollege;
+export default CoursEcoleDeCommerce;

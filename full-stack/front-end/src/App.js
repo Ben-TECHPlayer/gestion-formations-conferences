@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Pages de cours
-import CoursCollege from './pages/cours/CoursCollege';
+import CoursEcoleDeCommerce from './pages/cours/CoursEcoleDeCommerce';
 
 // ---- Importer nos feuilles de style ---- //
 
@@ -21,7 +21,7 @@ function App() {
                     {/* Ajouter nos routes qui sont nos pages */}
                     <Routes>
                         {/* Partie Clients */}
-                        <Route path="/cours/collegiens" element={<CoursCollege />} /> 
+                        <Route path="/cours/ecole-de-commerce" element={<CoursEcoleDeCommerce />} /> 
                     </Routes>
                 </div>
             </Router>
