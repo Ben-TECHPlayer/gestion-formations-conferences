@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
-function CoursCollege() {
+function CoursEtablissementBanquier() {
     return (
         <main className="cours-page">
             <div className="cours-container">
                 <div className="cours-header">
-                    <h1>Cours & Ateliers pour les Collégiens</h1>
-                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance dès le collège.</p>
+                    <h1>Cours & Ateliers pour les établissements banquiers</h1>
+                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance dans un établissement banquier.</p>
                 </div>
 
                 <div className="infos-cours">
@@ -69,4 +69,4 @@ function CoursCollege() {
     );
 }
 
-export default CoursCollege;
+export default CoursEtablissementBanquier;
