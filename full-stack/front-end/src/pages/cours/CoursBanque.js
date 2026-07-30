@@ -24,6 +24,7 @@ function CoursBanque() {
                             <li><strong>Confiance en soi :</strong> Vaincre la timidité et s'affirmer face aux autres.</li>
                             <li><strong>Prestance :</strong> Maîtriser son langage corporel, sa posture et son expression orale.</li>
                             <li><strong>Gestion :</strong> Organiser ses projets et gérer son temps efficacement.</li>
+                            <li><strong>Management :</strong> Apprendre à diriger une équipe.</li>
                         </ul>
                     </div>
 
@@ -31,7 +32,7 @@ function CoursBanque() {
                     <div className="tarif-cours">
                         <div className="prix-cours">
                             <h3>Tarif de l'atelier</h3>
-                            <p className="montant">150€</p>
+                            <p className="montant">200€</p>
                             <span className="details-tarif">Accès complet à tous les modules pratiques</span>
                         </div>
                         
