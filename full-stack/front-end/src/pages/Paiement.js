@@ -2,6 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Importer Stripe ainsi que ses dépendances pour permettre la mise en place du paiement par Apple Pay
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import BoutonApplePay from './BoutonApplePay';
+
 // Importer les dépendances PayPal pour permettre la mise en place du paiement par PayPal
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
@@ -12,9 +17,9 @@ function Paiement() {
 
     // Ce state permet de savoir si Apple Pay est prêt
     const [isApplePayAvailable, setIsApplePayAvailable] = useState(false);
-    // const [isApplePayAvailable, setIsApplePayAvailable] = useState(true);
-    // const [isMasterpassLoaded, setIsMasterpassLoaded] = useState(false);
-
+    
+    // Remplacez par votre VRAIE clé publique "Test" récupérée sur le dashboard Stripe (pk_test_...)
+    const stripePromise = loadStripe('pk_test_51TyWALRp8adLoeJMLPhOfGcShzgQ3QXCCgOJVdVfJefqdFtlagKliVvbPvG6vy7xy1aoYdrtnOaA3OvA5T5bNN1r00ljHBPMX9');
     // Charger le script au démarrage du composant
     useEffect(() => {
         // 1. Détection d'Apple Pay
@@ -87,6 +92,14 @@ function Paiement() {
                                     />
                                 </div>
                             )}
+
+                            {/* LE BLOC STRIPE (Apple Pay) */}
+                            <div className="encart-stripe" style={{ maxWidth: '400px', margin: '0 auto 2rem' }}>
+                                <Elements stripe={stripePromise}>
+                                    {/* On passe le prix et le nom du cours en paramètres (props) */}
+                                    <BoutonApplePay montant={50.00} nomCours="Cours pratique Business" />
+                                </Elements>
+                            </div>
 
                             <div className="separateur-ou">
                                 <span>ou</span>
