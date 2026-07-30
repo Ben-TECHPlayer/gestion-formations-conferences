@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
-function CoursCollege() {
+function CoursAssurance() {
     return (
         <main className="cours-page">
             <div className="cours-container">
                 <div className="cours-header">
-                    <h1>Cours & Ateliers pour les Collégiens</h1>
-                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance dès le collège.</p>
+                    <h1>Cours & Ateliers pour les Assurances</h1>
+                    <p className="sous-titre">Découvrez les bases du commerce, de la gestion et de la prise de parole pour booster votre confiance en assurance.</p>
                 </div>
 
                 <div className="infos-cours">
@@ -24,6 +24,7 @@ function CoursCollege() {
                             <li><strong>Confiance en soi :</strong> Vaincre la timidité et s'affirmer face aux autres.</li>
                             <li><strong>Prestance :</strong> Maîtriser son langage corporel, sa posture et son expression orale.</li>
                             <li><strong>Gestion :</strong> Organiser ses projets et gérer son temps efficacement.</li>
+                            <li><strong>Management :</strong> Apprendre à diriger une équipe.</li>
                         </ul>
                     </div>
 
@@ -69,4 +70,4 @@ function CoursCollege() {
     );
 }
 
-export default CoursCollege;
+export default CoursAssurance;
