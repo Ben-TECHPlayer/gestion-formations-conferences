@@ -10,6 +10,11 @@ html {
         margin: 0 4rem 0 4rem;
         padding: 0 4rem 0 4rem;
     }
+
+    header .header-container .header-line .menu .menu-main.show{
+        padding-right: 9rem;
+        width: 30%;
+    }
 }
 
 header .header-container {
@@ -79,6 +84,10 @@ header .header-container {
                     padding: 1.5rem;
                 }
 
+                .submenu.level1{
+                    border-right: 1px solid black;
+                }
+
                 .submenu.level2 {
                     position: relative;
                     top: 0;
@@ -89,10 +98,12 @@ header .header-container {
                     padding: 0 0 0 1rem;
                     border-left: 2px solid #e0e0e0;
                     margin-top: 0.5rem;
+                    border-right: 1px solid black;
                 }
 
                 .submenu.level2.open {
-                    padding: 0.5rem 0 0 1rem;
+                    padding: 0.5rem 1rem 0 1rem;
+                    /* border-right: 1px solid black; */
                 }
 
                 .submenu-toggle {
@@ -105,9 +116,12 @@ header .header-container {
                     font-family: inherit;
                     padding: 0;
                     text-align: left;
+                    transition: color 0.3s ease-in;
                 }
 
-                button.submenu-toggle.active {
+                /* Le bouton dropdown devient bleu au survol ou s'il est actif */
+                .submenu-toggle:hover, 
+                .submenu-toggle.active {
                     color: #007bff !important; 
                 }
 
@@ -117,23 +131,29 @@ header .header-container {
                     padding: 0.5rem 1rem;
                     border: 2px solid #007bff;
                     border-radius: 5px;
-
-                    :hover {
-                        color: white;
-                        background: #007bff;
-                        transition: ease-in 0.3s;
-                    }
+                    transition: all 0.3s ease-in;
                 }
 
+                /* Le bouton Contact : Fond bleu et texte blanc au survol ET quand on est sur la section */
+                a.contact:hover, 
+                a.contact.active {
+                    color: white;
+                    background: #007bff;
+                }
+
+                /* Tous les autres liens (dont "A propos de nous") et boutons */
                 a, button {
                     text-decoration: none;
                     color: black;
                     font-weight: 500;
+                    transition: color 0.3s ease-in;
+                }
 
-                    :hover {
-                        color: #007bff;
-                        transition: ease-in 0.3s;
-                    }
+                /* Les liens deviennent bleus au survol ET quand on est sur leur page */
+                a:hover, 
+                a.active,
+                button:hover {
+                    color: #007bff;
                 }
             }
         }
@@ -145,48 +165,54 @@ header .header-container {
     transition: ease-in 0.3s;
 }
 
-/* ---------------------------------------------------- */
-/* RESPONSIVE (MOBILES ET TABLETTES) */
-/* ---------------------------------------------------- */
-@media (max-width: 768px) {
-    /* 1. On affiche le bouton hamburger */
+   /* MENU */
+
+/* 1. On affiche le bouton hamburger ET on le met au-dessus du menu */
     header .header-container .header-line .menu-toggle {
         display: block;
+        position: relative;
     }
 
-    /* 2. On force le bloc de navigation à passer en dessous */
     header .header-container .header-line .menu {
         width: 100%;
     }
 
-    /* Le menu principal en mode colonne, aligné à droite */
+/* 
+      LE MENU TIROIR (OFF-CANVAS) : 
+      Fixé par-dessus l'écran, il glisse de la droite vers la gauche.
+    */
     header .header-container .header-line .menu .menu-main {
-        max-height: 0;
-        overflow: hidden;
+        position: fixed; /* Détache le menu du flux de la page */
+        top: 0;
+        right: 0; /* Collé à droite */
+        width: 85%; /* Largeur du menu sur mobile */
+        max-width: 350px;
+        height: 100vh; /* Toute la hauteur de l'écran */
+        background-color: white;
+        z-index: 2000;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.15); /* La petite ombre portée façon Carrefour */
+        
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        width: 100%;
-        margin-top: 1rem;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    /* 
-      LA FENÊTRE SCROLLABLE : 
-      Le menu s'ouvre, se limite à la hauteur visible de l'écran (85dvh).
-      Si l'ouverture des sous-menus "Clients" et "Entreprises" fait tout dépasser, 
-      le scroll vertical s'active pour voir le menu en entier, y compris le bouton Contact.
-    */
-    header .header-container .header-line .menu .menu-main.show {
-        max-height: 85dvh; 
-        overflow-y: auto; 
+        align-items: flex-end; /* Maintient tes boutons alignés à droite */
+        
+        /* On ajoute un padding en haut pour que le premier lien ne soit pas caché sous le bouton hamburger */
+        padding: 5rem 1.5rem 2rem 1.5rem; 
+        
+        /* L'animation : on le cache totalement sur la droite par défaut */
+        transform: translateX(100%); 
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        opacity: 1;
-        padding-bottom: 2rem;
     }
 
-    /* Les groupes de dropdown s'empirent proprement dans le flux */
+    /* QUAND C'EST OUVERT (.show) : Le menu glisse sur l'écran */
+    header .header-container .header-line .menu .menu-main.show {
+        transform: translateX(0); /* Revient à sa place */
+    }
+
+    /* Les groupes de dropdown s'empilent proprement dans le flux */
     header .header-container .header-line .menu .menu-main .dropdown-group {
         position: relative;
         display: flex;
@@ -200,7 +226,7 @@ header .header-container {
         position: relative;
         top: 0;
         left: 0;
-        transform: none;
+        transform: none; /* S'assure que les sous-menus ne subissent pas d'autres transformations */
         box-shadow: none;
         background: transparent;
         width: 100%;
@@ -209,22 +235,17 @@ header .header-container {
         padding: 0;
     }
 
-    /* QUAND C'EST OUVERT (.open) : les sous-menus s'ouvrent fluidement */
-    header .header-container .header-line .menu .menu-main .dropdown-group .submenu.open {
-        max-height: 1500px;
-        opacity: 1;
-        padding: 0.5rem 0;
-    }
+/* Le reste de votre CSS d'origine reste identique à partir d'ici... */
 
-    /* Ajustement spécifique pour le niveau 2 (Entreprises) sur mobile */
-    header .header-container .header-line .menu .menu-main .submenu.level2 {
-        border-left: none;
-        border-right: 2px solid #e0e0e0;
-        padding: 0;
-        margin-top: 0.5rem;
-    }
+/* ---------------------------------------------------- */
+/* RESPONSIVE (MOBILES ET TABLETTES) */
+/* ---------------------------------------------------- */
+/* @media (max-width: 768px) {
+    
 
-    header .header-container .header-line .menu .menu-main .submenu.level2.open {
-        padding: 0.5rem 0;
-    }
-}
+    
+
+    
+
+    
+} */

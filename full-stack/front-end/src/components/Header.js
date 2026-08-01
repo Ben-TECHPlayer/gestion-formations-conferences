@@ -109,7 +109,7 @@ function Header() {
                                 </div>
                             </div>
 
-                            <NavLink to="/#formulaire-contact" className="contact">
+                            <NavLink to="/#formulaire-contact" className={`contact ${location.hash === '#formulaire-contact' ? 'active' : ''}`}>
                                 Contact
                             </NavLink>
                         </div>
