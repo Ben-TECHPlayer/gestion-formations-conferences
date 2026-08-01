@@ -1,6 +1,6 @@
 // Importer React ainsi que ses hooks, ses routeurs
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Importer Stripe ainsi que ses dépendances pour permettre la mise en place du paiement par Apple Pay
 import { loadStripe } from '@stripe/stripe-js';
@@ -15,15 +15,30 @@ import '../styles/pages/Paiement.css';
 
 function Paiement() {
 
+    // 1. On écoute ce qui arrive de l'URL
+    const location = useLocation();
+
+    // 2. LA MAGIE EST ICI : 
+    // Si on vient d'un clic sur un cours, on prend ses données (location.state).
+    // Si on teste la page directement sur cette branche, on prend les données de secours après le "||".
+    const detailsCours = location.state || {
+        id_cours: "COURS_TEST_01",
+        titre: "Atelier Pratique - Test Développeur",
+        description: "Mode test activé sur la branche paiement",
+        prix: "150.00", 
+        prixAffichage: "150,00 €",
+        lienRetour: "/"
+    };
+
     // Ce state permet de savoir si Apple Pay est prêt
     const [isApplePayAvailable, setIsApplePayAvailable] = useState(false);
     
     // Remplacez par votre VRAIE clé publique "Test" récupérée sur le dashboard Stripe (pk_test_...)
     const stripePromise = loadStripe('pk_test_51TyWALRp8adLoeJMLPhOfGcShzgQ3QXCCgOJVdVfJefqdFtlagKliVvbPvG6vy7xy1aoYdrtnOaA3OvA5T5bNN1r00ljHBPMX9');
+    
     // Charger le script au démarrage du composant
     useEffect(() => {
-        // 1. Détection d'Apple Pay
-        // On vérifie si l'API est présente dans la fenêtre du navigateur
+        // Détection d'Apple Pay
         if (window.ApplePaySession && window.ApplePaySession.canMakePayments()) {
             setIsApplePayAvailable(true);
         }
@@ -31,17 +46,14 @@ function Paiement() {
 
     const handleApplePayClick = () => {
         alert("Logique Apple Pay à implémenter plus tard !");
-        // Quand vous serez prêt, c'est ici qu'on créera l'objet new ApplePaySession(...)
     };
 
     // Configurer globalement PayPal
     const initialOptions = {
-        "client-id": "Abn4I9lzVopG5mFZm2JBFz5qw8u1UIhtclMtFOacAi3sxu-yB_B4JRwNmJnH-NYD75p1vrZfrYOfUUYC", // À remplacer par votre vrai Client ID depuis le dashboard développeur PayPal
+        "client-id": "Abn4I9lzVopG5mFZm2JBFz5qw8u1UIhtclMtFOacAi3sxu-yB_B4JRwNmJnH-NYD75p1vrZfrYOfUUYC", 
         currency: "EUR",
         intent: "capture",
     };
-
-    
 
     return (
         // Le Provider englobe la vue pour fournir l'accès à l'API PayPal
@@ -57,21 +69,21 @@ function Paiement() {
 
                     <div className="paiement-grid">
                         
-                        {/* Colonne Récapitulatif du cours */}
+                        {/* Colonne Récapitulatif du cours (Dynamique) */}
                         <div className="recap-panier">
                             <h2>Récapitulatif</h2>
                             <div className="panier-card">
                                 <div className="panier-info">
-                                    <h3>Atelier Pratique - Collégiens</h3>
-                                    <p>Commerce, techniques de vente & prise de parole</p>
+                                    <h3>{detailsCours.titre}</h3>
+                                    <p>{detailsCours.description}</p>
                                 </div>
                                 <div className="panier-prix">
-                                    <span>150,00 €</span>
+                                    <span>{detailsCours.prixAffichage}</span>
                                 </div>
                             </div>
                             <div className="panier-total">
                                 <span>Total à régler</span>
-                                <span className="total-montant">150,00 €</span>
+                                <span className="total-montant">{detailsCours.prixAffichage}</span>
                             </div>
                             <div className="securite-garantie">
                                 <p>🔒 Paiement 100% sécurisé et crypté</p>
@@ -93,11 +105,11 @@ function Paiement() {
                                 </div>
                             )}
 
-                            {/* LE BLOC STRIPE (Apple Pay) */}
+                            {/* LE BLOC STRIPE */}
                             <div className="encart-stripe" style={{ maxWidth: '400px', margin: '0 auto 2rem' }}>
                                 <Elements stripe={stripePromise}>
-                                    {/* On passe le prix et le nom du cours en paramètres (props) */}
-                                    <BoutonApplePay montant={50.00} nomCours="Cours pratique Business" />
+                                    {/* Le prix est envoyé dynamiquement au bouton Stripe */}
+                                    <BoutonApplePay montant={parseFloat(detailsCours.prix)} nomCours={detailsCours.titre} />
                                 </Elements>
                             </div>
 
@@ -112,7 +124,7 @@ function Paiement() {
                                     createOrder={(data, actions) => {
                                         return actions.order.create({
                                             purchase_units: [{
-                                                amount: { value: "150.00" } // Prix mis à 150€
+                                                amount: { value: detailsCours.prix } // Le prix est envoyé dynamiquement à PayPal
                                             }],
                                             application_context: {
                                                 shipping_preference: "NO_SHIPPING" 
@@ -121,8 +133,6 @@ function Paiement() {
                                     }}
                                     onApprove={async (data, actions) => {
                                         try {
-                                            const coursActuel = "COURS_COLLEGE_01"; 
-
                                             const response = await fetch("http://localhost:8000/valider-paiement.php", {
                                                 method: "POST",
                                                 headers: {
@@ -130,7 +140,7 @@ function Paiement() {
                                                 },
                                                 body: JSON.stringify({ 
                                                     orderID: data.orderID,
-                                                    id_cours: coursActuel
+                                                    id_cours: detailsCours.id_cours // L'ID du cours est envoyé au PHP
                                                 })
                                             });
 
@@ -151,7 +161,8 @@ function Paiement() {
                             </div>
 
                             <div className="retour-lien">
-                                <Link to="/cours/collegiens">&larr; Retour aux détails du cours</Link>
+                                {/* Le bouton retour ramène dynamiquement vers la bonne page */}
+                                <Link to={detailsCours.lienRetour}>&larr; Retour aux détails du cours</Link>
                             </div>
                         </div>
 
