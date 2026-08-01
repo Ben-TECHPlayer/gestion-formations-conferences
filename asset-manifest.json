@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/plateforme-apprentissage-commerce/static/css/main.43aba37d.css",
-    "main.js": "/plateforme-apprentissage-commerce/static/js/main.a20203d5.js",
+    "main.css": "/plateforme-apprentissage-commerce/static/css/main.f5f6d9ef.css",
+    "main.js": "/plateforme-apprentissage-commerce/static/js/main.84925223.js",
     "index.html": "/plateforme-apprentissage-commerce/index.html",
-    "main.43aba37d.css.map": "/plateforme-apprentissage-commerce/static/css/main.43aba37d.css.map",
-    "main.a20203d5.js.map": "/plateforme-apprentissage-commerce/static/js/main.a20203d5.js.map"
+    "main.f5f6d9ef.css.map": "/plateforme-apprentissage-commerce/static/css/main.f5f6d9ef.css.map",
+    "main.84925223.js.map": "/plateforme-apprentissage-commerce/static/js/main.84925223.js.map"
   },
   "entrypoints": [
-    "static/css/main.43aba37d.css",
-    "static/js/main.a20203d5.js"
+    "static/css/main.f5f6d9ef.css",
+    "static/js/main.84925223.js"
   ]
 }
