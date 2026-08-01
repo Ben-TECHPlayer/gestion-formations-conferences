@@ -110,6 +110,8 @@
                         font-weight: 600;
                         text-align: center;
                         transition: background-color 0.3s ease;
+                        font-size: 1rem;
+                        font-family: "Samsung Sharp Sans";
 
                         :hover {
                             background-color: #0056b3;
