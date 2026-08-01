@@ -1,10 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
 function CoursAssurance() {
+
+    const navigate = useNavigate();
+
+    const handleAchat = () => {
+        navigate('/paiement', {
+            state: {
+                id_cours: "COURS_ASSURANCE_01",
+                titre: "Atelier Pratique - Assurances",
+                description: "Techniques de vente et fidélisation pour le secteur de l'assurance",
+                prix: "300.00",
+                prixAffichage: "300,00 €",
+                lienRetour: "/cours/entreprises/assurances"
+            }
+        });
+    };
+
     return (
         <main className="cours-page">
             <div className="cours-container">
@@ -37,7 +53,9 @@ function CoursAssurance() {
                         </div>
                         
                         <div className="emplacement-paiement">
-                            <Link to="/paiement" className="bouton-paiement">Payer l'atelier</Link>
+                            <button onClick={handleAchat} className="bouton-paiement">
+                                S'inscrire à cet atelier
+                            </button>
                             <img src={`${process.env.PUBLIC_URL}/assets/images/PaiementSecuriseLogo.png`} alt="Paiement sécurisé" />
                         </div>
                     </div>

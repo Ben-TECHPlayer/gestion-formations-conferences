@@ -1,10 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
 function CoursLycee() {
+
+    const navigate = useNavigate();
+
+    // La fonction déclenchée au clic sur le bouton d'achat
+    const handleAchat = () => {
+        navigate('/paiement', {
+            state: {
+                id_cours: "COURS_LYCEE_01",
+                titre: "Atelier Pratique - Lycéens",
+                description: "Bases de l'entrepreneuriat et orientation business", // Vous pouvez adapter ce texte
+                prix: "170.00",
+                prixAffichage: "170,00 €",
+                lienRetour: "/cours/lyceens"
+            }
+        });
+    };
+
     return (
         <main className="cours-page">
             <div className="cours-container">
@@ -36,7 +53,9 @@ function CoursLycee() {
                         </div>
                         
                         <div className="emplacement-paiement">
-                            <Link to="/paiement" className="bouton-paiement">Payer l'atelier</Link>
+                            <button onClick={handleAchat} className="bouton-paiement">
+                                S'inscrire à cet atelier
+                            </button>
                             <img src={`${process.env.PUBLIC_URL}/assets/images/PaiementSecuriseLogo.png`} alt="Paiement sécurisé" />
                         </div>
                     </div>

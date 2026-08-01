@@ -1,10 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
 function CoursBanque() {
+
+    const navigate = useNavigate();
+
+    const handleAchat = () => {
+        navigate('/paiement', {
+            state: {
+                id_cours: "COURS_BANQUE_01",
+                titre: "Atelier Pratique - Secteur Bancaire",
+                description: "Formation spécialisée en négociation et relation client pour les banques",
+                prix: "200.00",
+                prixAffichage: "200,00 €",
+                lienRetour: "/cours/entreprises/banques"
+            }
+        });
+    };
+
     return (
         <main className="cours-page">
             <div className="cours-container">
@@ -37,7 +53,9 @@ function CoursBanque() {
                         </div>
                         
                         <div className="emplacement-paiement">
-                            <Link to="/paiement" className="bouton-paiement">Payer l'atelier</Link>
+                            <button onClick={handleAchat} className="bouton-paiement">
+                                S'inscrire à cet atelier
+                            </button>
                             <img src={`${process.env.PUBLIC_URL}/assets/images/PaiementSecuriseLogo.png`} alt="Paiement sécurisé" />
                         </div>
                     </div>

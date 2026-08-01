@@ -1,10 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Importer la customisation de la page de cours
 import '../../styles/pages/Cours.css';
 
 function CoursCollege() {
+
+    const navigate = useNavigate();
+
+    // La fonction déclenchée au clic sur le bouton d'achat
+    const handleAchat = () => {
+        navigate('/paiement', {
+            state: {
+                id_cours: "COURS_COLLEGE_01",
+                titre: "Atelier Pratique - Collégiens",
+                description: "Commerce, techniques de vente & prise de parole",
+                prix: "150.00",
+                prixAffichage: "150,00 €",
+                lienRetour: "/cours/collegiens"
+            }
+        });
+    };
+
     return (
         <main className="cours-page">
             <div className="cours-container">
@@ -36,7 +53,11 @@ function CoursCollege() {
                         </div>
                         
                         <div className="emplacement-paiement">
-                            <Link to="/paiement" className="bouton-paiement">Payer l'atelier</Link>
+                            {/* Le bouton qui déclenche la navigation avec les données */}
+                            <button onClick={handleAchat} className="bouton-paiement">
+                                S'inscrire à cet atelier
+                            </button>
+                            {/* <Link to="/paiement" className="bouton-paiement">Payer l'atelier</Link> */}
                             <img src={`${process.env.PUBLIC_URL}/assets/images/PaiementSecuriseLogo.png`} alt="Paiement sécurisé" />
                         </div>
                     </div>
