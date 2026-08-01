@@ -185,7 +185,7 @@ header .header-container {
         position: fixed; /* Détache le menu du flux de la page */
         top: 0;
         right: 0; /* Collé à droite */
-        width: 85%; /* Largeur du menu sur mobile */
+        width: 90%; /* Largeur du menu sur mobile */
         max-width: 350px;
         height: 100vh; /* Toute la hauteur de l'écran */
         background-color: white;
@@ -233,6 +233,23 @@ header .header-container {
         align-items: flex-end;
         text-align: right;
         padding: 0;
+    }
+
+    /* NOUVEAU : Style du bouton de fermeture (X) */
+    .menu-close {
+        background: none;
+        border: none;
+        font-size: 3rem; /* Rend la croix bien visible */
+        color: black;
+        cursor: pointer;
+        margin-bottom: 2rem; /* Espace le X du premier lien */
+        padding: 0;
+        line-height: 0.5;
+        transition: color 0.3s ease-in;
+    }
+
+    .menu-close:hover {
+        color: #007bff; /* Devient bleu au survol */
     }
 
 /* Le reste de votre CSS d'origine reste identique à partir d'ici... */

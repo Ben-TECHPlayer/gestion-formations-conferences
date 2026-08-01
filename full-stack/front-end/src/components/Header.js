@@ -8,21 +8,24 @@ function Header() {
     const [boutonEntreprisesOpen, setBoutonEntreprisesOpen] = useState(false);
 
     const location = useLocation();
-    
-    // 1. On crée une référence pour notre zone de navigation
     const menuRef = useRef(null);
 
     const isClientsActive = location.pathname.startsWith('/cours');
     const isEntreprisesActive = location.pathname.startsWith('/cours/entreprises');
 
-    // 2. L'écouteur de "clic à l'extérieur"
+    // 1. L'écouteur de "clic à l'extérieur"
     useEffect(() => {
         const handleClickOutside = (event) => {
+            // NOUVEAU : On ignore totalement le clic si l'utilisateur clique sur la barre de défilement à droite
+            if (event.clientX >= document.documentElement.clientWidth) {
+                return; // On stoppe la fonction ici, le menu reste ouvert
+            }
+
             // Si le menu existe ET que le clic n'est pas DEDANS
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setBoutonClientsOpen(false);
                 setBoutonEntreprisesOpen(false);
-                setMenuOpen(false); // Referme aussi le menu mobile
+                setMenuOpen(false); 
             }
         };
 
@@ -35,12 +38,30 @@ function Header() {
         };
     }, []);
 
-    // 3. Fermer automatiquement les menus dès qu'on change de page
+    // 2. Fermer automatiquement les menus dès qu'on change de page
     useEffect(() => {
         setBoutonClientsOpen(false);
         setBoutonEntreprisesOpen(false);
         setMenuOpen(false);
-    }, [location]); // Ce code s'exécute à chaque fois que l'URL (location) change
+    }, [location]);
+
+    // 3. NOUVEAU : Fermer le menu au scroll, SAUF sur ordinateur (largeur >= 1150px)
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.innerWidth < 1150 && menuOpen) {
+                setMenuOpen(false);
+                setBoutonClientsOpen(false);
+                setBoutonEntreprisesOpen(false);
+            }
+        };
+
+        // On écoute le défilement de la page
+        window.addEventListener("scroll", handleScroll);
+        
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [menuOpen]); // Ce useEffect se met à jour quand menuOpen change
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -69,9 +90,17 @@ function Header() {
                 
                     <button className="menu-toggle" aria-label="Ouvrir le menu" onClick={toggleMenu}>&#9776;</button>
                 
-                    {/* On attache notre référence (menuRef) ici à la racine de la navigation */}
                     <nav className="menu" ref={menuRef}>
                         <div className={`menu-main ${menuOpen ? 'show' : ''}`}>
+                            
+                            {/* NOUVEAU : Le bouton X pour fermer le menu */}
+                            <button 
+                                className="menu-close" 
+                                aria-label="Fermer le menu" 
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                &times;
+                            </button>
                             
                             <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>
                                 A propos de nous

@@ -32,7 +32,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            width: 100%;
+            /* width: 100%; */
             gap: 2rem;
             background: #f9f9f9;
             padding: 2.5rem;
@@ -176,11 +176,11 @@
             }
             .infos-cours {
                 flex-direction: column;
-                padding: 1.5rem;
+                /* padding: 1.5rem; */
 
-                .tarif-cours {
+                /* .tarif-cours {
                     width: 100%;
-                }
+                } */
             }
         }
     }
