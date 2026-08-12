@@ -25,10 +25,10 @@
 
         /* Grille de disposition (Récapitulatif à gauche / Paiement à droite) */
         .paiement-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            /* grid-template-columns: 1fr 1fr; */
             gap: 2rem;
-            align-items: flex-start;
+            align-items: center;
 
             /* Bloc Récapitulatif */
             .recap-panier {
@@ -118,6 +118,22 @@
     }
 }
 
+.btn-payer{
+    margin-top: 1rem;
+    background-color: white;
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-family: "Samsung Sharp Sans";
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 10px;
+}
+
+.btn-payer:hover{
+    background-color: #007bff;
+    color: white;
+}
+
 
 
 
@@ -192,7 +208,7 @@
 /* Responsive pour mobiles et tablettes */
 @media (max-width: 768px) {
     .paiement-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .paiement-page {

@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Page de paiement
 import Paiement from './pages/Paiement';
+import Succes from './pages/Succes';
 
 // ---- Importer nos feuilles de style ---- //
 
@@ -20,6 +21,7 @@ function App() {
                 <div className="App">
                     <Routes>
                         <Route path="/paiement" element={<Paiement />} />
+                        <Route path="/succes" element={<Succes />} />
                     </Routes>
                 </div>
             </Router>
