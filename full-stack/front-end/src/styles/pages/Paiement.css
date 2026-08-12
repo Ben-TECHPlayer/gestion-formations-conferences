@@ -118,6 +118,22 @@
     }
 }
 
+.btn-payer{
+    margin-top: 1rem;
+    background-color: white;
+    border: 1px solid #007bff;
+    color: #007bff;
+    font-family: "Samsung Sharp Sans";
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 10px;
+}
+
+.btn-payer:hover{
+    background-color: #007bff;
+    color: white;
+}
+
 
 
 

@@ -22,6 +22,7 @@ import CoursEtablissementBanquier from './pages/cours/CoursEtablissementBanquier
 
 // Page de paiement
 import Paiement from './pages/Paiement';
+import Succes from './pages/Succes';
 
 // ---- Importer nos feuilles de style ---- //
 
@@ -62,6 +63,7 @@ function App() {
 
                         {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
+                        <Route path="/succes" element={<Succes />} />
                     </Routes>
                     {/* Ajouter notre footer */}
                     <Footer/>
