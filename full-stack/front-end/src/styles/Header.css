@@ -252,17 +252,17 @@ header .header-container {
         color: #007bff; /* Devient bleu au survol */
     }
 
-/* Le reste de votre CSS d'origine reste identique à partir d'ici... */
+    .espace-apprenant{
+        align-items: flex-end;
+    }
 
-/* ---------------------------------------------------- */
-/* RESPONSIVE (MOBILES ET TABLETTES) */
-/* ---------------------------------------------------- */
-/* @media (max-width: 768px) {
-    
+    .espace-apprenant p{
+        text-transform: uppercase;
+    }
 
-    
-
-    
-
-    
-} */
+    .espace-apprenant .btn-authentification{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2rem;
+    }

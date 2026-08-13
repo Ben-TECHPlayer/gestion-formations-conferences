@@ -141,6 +141,19 @@ function Header() {
                             <NavLink to="/#formulaire-contact" className={`contact ${location.hash === '#formulaire-contact' ? 'active' : ''}`}>
                                 Contact
                             </NavLink>
+
+                            <div className="espace-apprenant">
+                                <p>Espace Apprenant</p>
+                                <div className="btn-authentification">
+                                    <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""}>
+                                        Se connecter
+                                    </NavLink>
+
+                                    <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>
+                                        Créer un compte
+                                    </NavLink>
+                                </div>
+                            </div>
                         </div>
                     </nav>
                 </div>
