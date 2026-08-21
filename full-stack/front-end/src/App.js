@@ -24,6 +24,10 @@ import CoursEtablissementBanquier from './pages/cours/CoursEtablissementBanquier
 import Paiement from './pages/Paiement';
 import Succes from './pages/Succes';
 
+// Importer le système d'authentification ainsi que sa customisation
+import Register from './pages/authentification/Register';
+import Login from './pages/authentification/Login';
+
 // ---- Importer nos feuilles de style ---- //
 
 // Customiser nos composants
@@ -37,6 +41,8 @@ import './styles/pages/Cours.css';
 import './styles/pages/Paiement.css';
 
 import './styles/index.css';
+
+
 
 function App() {
     return (
@@ -64,6 +70,10 @@ function App() {
                         {/* Partie Paiement */}
                         <Route path="/paiement" element={<Paiement />} />
                         <Route path="/succes" element={<Succes />} />
+
+                        {/* Ajouter le système d'authentification */}
+                        <Route path="/register" element={<Register/>} /> 
+                        <Route path="/login" element={<Login/>} />
                     </Routes>
                     {/* Ajouter notre footer */}
                     <Footer/>
