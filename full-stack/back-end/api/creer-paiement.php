@@ -14,8 +14,12 @@
     // Si vous ne l'avez pas encore fait, il faudra lancer la commande : composer require stripe/stripe-php
     require_once 'vendor/autoload.php';
 
-    \Stripe\Stripe::setApiKey('ma_cle_secrete_ici');
-    
+    // 3. Inclure le fichier secret (qui ne partira jamais sur Git)
+    require_once 'config/secrets.php';
+
+    // 4. Utiliser la variable
+    \Stripe\Stripe::setApiKey($stripeSecretKey);
+
     try {
         // 4. On récupère les informations envoyées par React (le "colis")
         $jsonStr = file_get_contents('php://input');
